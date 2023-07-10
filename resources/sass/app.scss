@@ -4,3 +4,85 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 @import "bootstrap-icons/font/bootstrap-icons.css";
+
+
+#navbar{
+    background-color: #454545;
+    color: #FFFFFF;
+}
+#navbar a{
+    color: #FFFFFF;
+}
+
+
+// html
+#html{
+    height: 100%;
+     margin: 0;
+}
+
+
+// Login
+#bg-login{
+    background-color: #1E1E1E;
+    font-family: 'Poppins', sans-serif;
+}
+
+#email{
+    border-color: #34626C;
+}
+#password{
+    border-color: #34626C;
+}
+
+#f-pass{
+    text-decoration: none;
+    color: #1E1E1E;
+}
+
+
+// #logo-home{
+//     display: flex;
+//     width: 399px;
+//     height: 159px;
+//     flex-direction: column;
+//     flex-shrink: 0;
+// }
+
+#logo-home p{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+// #c-mainmenu{
+//     display: flex;
+//     width: 257px;
+//     height: 123px;
+//     transform: rotate(-90deg);
+//     flex-direction: column;
+//     flex-shrink: 0;
+// }
+
+#c-mainmenu p{
+    color: #FFA559;
+    font-family: Poppins;
+    // font-size: 30px;
+    // font-style: normal;
+    // font-weight: 400;
+    // line-height: normal;
+    // transform: rotate(-90deg);
+    // margin-top: 80px;
+}
+
+#c-menu{
+    width: 480px;
+    height: 450px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: #FFF;
+    box-shadow: 9px 14px 19px 0px rgba(0, 0, 0, 0.25);
+}
