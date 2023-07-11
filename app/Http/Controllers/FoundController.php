@@ -25,7 +25,7 @@ class FoundController extends Controller
      */
     public function create()
     {
-        //
+        return view ('action.createfound');
     }
 
     /**
@@ -41,7 +41,7 @@ class FoundController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view ('action.detailfound');
     }
 
     /**
@@ -49,7 +49,7 @@ class FoundController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view ('action.editfound');
     }
 
     /**
