@@ -5,7 +5,6 @@
     <table class="table table-bordered table-hover table-striped mb-0 bg-white">
         <thead>
             <tr class="fs-5">
-                <th>Nama</th>
                 <th>Nama Barang</th>
                 <th>Tanggal Kehilangan</th>
                 <th>Action</th>
@@ -14,7 +13,6 @@
         <tbody>
             @foreach ($losts as $lost)
                 <tr>
-                    <td>{{ $lost->nama }}</td>
                     <td>{{ $lost->nama_barang }}</td>
                     <td>{{ $lost->tgl_kehilangan }}</td>
                     {{-- <td>@include('employee.actions')</td> --}}

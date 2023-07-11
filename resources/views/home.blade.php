@@ -22,16 +22,20 @@
                     MAIN MENU
                 </p>
             </div>
-            <div class="col-2 " id="c-menu">
-                <div class="row text-center pt-5 my-5" >
-                    <div class="col" >
-                        <a href="{{ route('losts.index') }}"> LOST?</a>
+            <div class="col-2" id="c-menu">
+                <div class="row text-center mb-4" >
+                    <div class="col"></div>
+                    <div class="col-md-10 d-grid">
+                        <a href="{{ route('losts.index') }}" class="btn btn-outline-dark fs-2 text-decoration-none fw-bold" role="button">LOST?</a>
                     </div>
+                    <div class="col"></div>
                 </div>
                 <div class="row text-center">
-                    <div class="col-12">
-                        <a href="{{ route('founds.index') }}"> FOUND</a>
+                    <div class="col"></div>
+                    <div class="col-md-10 d-grid">
+                        <a href="{{ route('founds.index') }}" style="background-color: #FFA559;" class="btn btn-warning fs-2 text-decoration-none fw-bold text-white" role="button">FOUNDS!</a>
                     </div>
+                    <div class="col"></div>
                 </div>
             </div>
         </div>

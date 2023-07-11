@@ -1,17 +1,15 @@
 @extends('layouts.apps')
 
 @section('content')
-<div class="container">
+<div class="container justify-content-center">
+    <p class="fs-1 fw-bold text-center mt-5 pt-5" style="color: #FFFFFF;">
+        L O G O
+    </p>
     <div class="row justify-content-center">
-        <p class="fs-1 fw-bold text-center mt-5 pt-5" style="color: #FFFFFF;">
-            L O G O
-        </p>
-
-        <div class="col-md-4">
-            <div class="card">
+        <div class="col-md-4 justify-content-center">
+            <div class="card justify-content-center">
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
-
                     <div class="row mb-3 mt-3 pt-3 justify-content-center">
                         <div class="col-10">
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror text-center"  name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
@@ -37,11 +35,17 @@
                     </div>
 
 
-                    <div class="text-center row">
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-warning fw-bold">
-                                  LOGIN
+                    <div class="row text-center">
+                        <div class="col">
+
+                        </div>
+                        <div class="col-md-10 d-grid">
+                            <button type="submit" style="background-color: #FFA559;" class="btn btn-warning fw-bold text-white">
+                                LOGIN
                             </button>
+                        </div>
+                        <div class="col">
+
                         </div>
                     </div>
 
