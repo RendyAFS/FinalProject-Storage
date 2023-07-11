@@ -23,7 +23,16 @@
                 </p>
             </div>
             <div class="col-2 " id="c-menu">
-
+                <div class="row text-center pt-5 my-5" >
+                    <div class="col" >
+                        <a href="{{ route('losts.index') }}"> LOST?</a>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div class="col-12">
+                        <a href="{{ route('founds.index') }}"> FOUND</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

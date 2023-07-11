@@ -56,8 +56,8 @@
                                     {{ Auth::user()->name }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" style="aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" style="color: #454545;" href="{{ route('logout') }}"
+                                <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end" style="aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" style="color: #FFFFFF;" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                        <i class="bi bi-box-arrow-left fs-5"></i> LOGOUT
@@ -74,7 +74,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4 px-5 mx-5">
             @yield('content')
         </main>
     </div>
