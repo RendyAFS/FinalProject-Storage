@@ -51,7 +51,7 @@
                     </div>
 
                     <div class="col-md-12 mb-5">
-                        <label for="foto" class="form-label fw-bold p-2" style="background-color: #FFA559; border-radius:10px; color: #454545;">Foto Barang (Opsional)</label>
+                        <label for="foto" class="form-label fw-bold p-2" style="color: #454545;">Foto Barang (Opsional)</label>
                         <input type="file" class="form-control" name="foto" id="foto">
                     </div>
 
