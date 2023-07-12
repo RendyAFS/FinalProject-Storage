@@ -20,11 +20,11 @@ class FoundFactory extends Factory
            'nama' => fake()->name(),
            'nama_barang'=> fake()->randomElement(),
            'deskripsi_barang'=> fake()->sentence(3),
-           'foto_barang'=> fake()->image(),
+        //    'foto_barang'=> fake()->image(),
            'tgl_ditemukan'=> fake()->date(),
            'tgl_claim'=> fake()->date(),
            'nomorhp' => fake()->phoneNumber(12),
-           'foto_identitas'=>fake()->image()
+        //    'foto_identitas'=>fake()->image()
         ];
     }
 }

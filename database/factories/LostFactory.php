@@ -20,7 +20,7 @@ class LostFactory extends Factory
             'nama'=> fake()->name(),
             'nama_barang'=>fake()->randomElement(),
             'deskripsi_barang'=>fake()->sentence(4),
-            'foto_barang'=>fake()->image(),
+            // 'foto_barang'=>fake()->image(),s
             'nomorhp'=>fake()->phoneNumber(12),
             'tgl_kehilangan'=>fake()->date()
         ];
