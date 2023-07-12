@@ -7,7 +7,7 @@
     </div>
     <div class="col-lg-3 col-xl-2">
         <div class="d-grid gap-2">
-            <a href="{{ route('losts.create') }}" style="background-color: #FFA559;" class="btn btn-warning text-black fw-bold fs-5 mb-5 mt-3">
+            <a href="{{ route('founds.create') }}" style="background-color: #FFA559;" class="btn btn-warning text-black fw-bold fs-5 mb-5 mt-3">
                 Tambah <i class="bi bi-plus fw-bold fs-4"></i>
             </a>
         </div>
