@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('founds', function (Blueprint $table) {
             $table->id();
-            $table->string('nama')->nullable();
-            $table->string('nama_barang')->nullable();
+            $table->string('nama');
+            $table->string('nama_barang');
             $table->string('deskripsi_barang');
-            $table->string('foto_barang');
+            // $table->string('foto_barang');
             $table->date('tgl_ditemukan');
 
             $table->date('tgl_claim');
             $table->string('nomorhp');
-            $table->string('foto_identitas');
+            // $table->string('foto_identitas');
             $table->timestamps();
         });
     }

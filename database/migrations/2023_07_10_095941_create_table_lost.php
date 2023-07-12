@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('losts', function (Blueprint $table) {
             $table->id();
-            $table->string('nama')->nullable();
+            $table->string('nama');
             $table->string('nama_barang');
             $table->string('deskripsi_barang');
-            $table->string('foto_barang');
+            // $table->string('foto_barang');
             $table->string('nomorhp');
             $table->date('tgl_kehilangan');
             $table->timestamps();

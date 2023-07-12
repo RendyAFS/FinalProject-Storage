@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Lost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class LostController extends Controller
 {
@@ -33,7 +35,52 @@ class LostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Mendefinisikan pesan kesalahan untuk validasi input
+        $messages = [
+            'required' => ':attribute harus diisi.',
+            'numeric' => 'Isi :attribute dengan angka.',
+            'date' => 'Isi: Tanggal kehilangan'
+        ];
+
+        // Validasi input menggunakan Validator
+        $validator = Validator::make($request->all(), [
+            'nama' => 'required',
+            'nama_barang' => 'required',
+            'deskripsi_barang' => 'required',
+            'tgl_kehilangan' => 'date',
+            'nomorhp'=> 'numeric'
+        ], $messages);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        // Get File
+        $file = $request->file('foto');
+
+        if ($file != null) {
+            $originalFilename = $file->getClientOriginalName();
+            $encryptedFilename = $file->hashName();
+
+            // Store File
+            $file->store('public/files');
+        }
+
+            // ELOQUENT
+            $lost = New Lost;
+            $lost->nama= $request->nama;
+            $lost->nama_barang = $request->nama_barang;
+            $lost->deskripsi_barang = $request->deskripsi_barang;
+            $lost->tgl_kehilangan = $request->tgl_kehilangan;
+            $lost->nomorhp = $request->nomorhp;
+
+            if ($file != null) {
+                $lost->original_filename = $originalFilename;
+                $lost->encrypted_filename = $encryptedFilename;
+            }
+
+            $lost->save();
+            return redirect()->route('losts.index');
     }
 
     /**
@@ -65,6 +112,15 @@ class LostController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // ELOQUENT
+        $lost = Lost::find($id);
+
+         // Hapus file terkait tidak menggunakan path jika ada
+         if ($lost->encrypted_filename) {
+            Storage::delete('public/files/'.$lost->encrypted_filename);
+        }
+
+        $lost->delete();
+        return redirect()->route('losts.index');
     }
 }
