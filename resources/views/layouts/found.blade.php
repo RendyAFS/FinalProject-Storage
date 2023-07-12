@@ -13,7 +13,7 @@
         </div>
     </div>
 </div>
-<div class="table-responsive border p-3 rounded-3" style="color: #FFA559">
+<div class="table-responsive border border-warning p-3 rounded-3" style="color: #FFA559;">
     <table class="table table-bordered table-hover table-striped mb-0 table-dark"
     id="tableFound">
         <thead>
