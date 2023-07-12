@@ -1,9 +1,9 @@
-// Variables
-@import 'variables';
-
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 @import "bootstrap-icons/font/bootstrap-icons.css";
+// DataTables
+@import "datatables.net-bs5/css/dataTables.bootstrap5.css";
+@import "datatables.net-buttons-bs5/css/buttons.bootstrap5.css";
 
 
 #navbar{
@@ -126,4 +126,8 @@
     // text-decoration: none;
     color: #ffffff;
     // margin-top: 20px;
+}
+
+#tableLost{
+    color: #FFFFFF;
 }

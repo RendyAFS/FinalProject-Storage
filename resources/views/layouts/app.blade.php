@@ -52,7 +52,7 @@
                             @endif --}}
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="btn btn-dark dropdown-toggle " style="color: #FFA559;border-radius:12px; background-color:black" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
@@ -60,7 +60,7 @@
                                     <a class="dropdown-item" style="color: #FFFFFF;" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                       <i class="bi bi-box-arrow-left fs-5"></i> LOGOUT
+                                       <i class="bi bi-box-arrow-left fs-5 me-2"></i> LOGOUT
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -76,6 +76,8 @@
 
         <main class="py-4 px-5 mx-5">
             @yield('content')
+            @stack('scripts')
+
         </main>
     </div>
 </body>
