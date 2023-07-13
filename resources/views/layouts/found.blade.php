@@ -31,7 +31,9 @@
                     <td>
                         {{ $found->nama_barang }} <br><br>
                         {{-- {{ $found->foto_barang_found }} --}}
-                        <img src="{{ asset('foto-found/'.$found->foto_barang_found)}}" style="width: 150px">
+                        @if ($found->foto_barang_found)
+                            <img src="{{ asset('foto-found/'.$found->foto_barang_found)}}" style="width: 150px">
+                        @endif
                         <br><br>
                         <div>
                             @include('action.actionfound')
