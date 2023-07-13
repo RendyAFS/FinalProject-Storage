@@ -27,3 +27,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('losts', LostController::class);
 Route::resource('founds', FoundController::class);
 
+// Route::get('founds/claim', 'FoundController@claim')->name('founds.claim');

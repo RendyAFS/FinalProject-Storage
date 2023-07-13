@@ -88,7 +88,8 @@ class LostController extends Controller
      */
     public function show(string $id)
     {
-        return view ('action.detaillost');
+        $lost = Lost::find($id);
+        return view ('action.detaillost', compact('lost'));
     }
 
     /**
@@ -96,7 +97,8 @@ class LostController extends Controller
      */
     public function edit(string $id)
     {
-        return view ('action.editlost');
+        $lost = Lost::find($id);
+        return view ('action.editlost', compact('lost'));
     }
 
     /**
