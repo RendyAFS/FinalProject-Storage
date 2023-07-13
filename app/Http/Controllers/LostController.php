@@ -59,11 +59,11 @@ class LostController extends Controller
         $file = $request->file('foto');
 
         if ($file != null) {
-            $originalFilename = $file->getClientOriginalName();
+            $foto_barang_lost = $file->getClientOriginalName();
             $encryptedFilename = $file->hashName();
 
             // Store File
-            $file->store('public/files');
+            $file->store('public/foto-lost/');
         }
 
             // ELOQUENT
@@ -75,7 +75,7 @@ class LostController extends Controller
             $lost->nomorhp = $request->nomorhp;
 
             if ($file != null) {
-                $lost->original_filename = $originalFilename;
+                $lost->foto_barang_lost = $foto_barang_lost;
                 $lost->encrypted_filename = $encryptedFilename;
             }
 

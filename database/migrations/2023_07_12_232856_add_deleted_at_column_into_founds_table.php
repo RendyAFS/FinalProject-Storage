@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('losts', function (Blueprint $table) {
-            $table->softDeletes('deleted_at')->after('foto_barang_lost');
+        Schema::table('founds', function (Blueprint $table) {
+            $table->softDeletes('deleted_at')->after('nomorhp');
         });
     }
 
@@ -21,7 +21,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('losts', function (Blueprint $table) {
+        Schema::table('founds', function (Blueprint $table) {
             $table->dropSoftDeletes('deleted_at');
         });
     }

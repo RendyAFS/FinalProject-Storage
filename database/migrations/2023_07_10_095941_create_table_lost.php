@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('nama');
             $table->string('nama_barang');
             $table->string('deskripsi_barang');
-            // $table->string('foto_barang');
             $table->string('nomorhp');
             $table->date('tgl_kehilangan');
+            $table->string('foto_barang_lost')->nullable();
             $table->timestamps();
         });
     }
