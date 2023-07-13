@@ -80,7 +80,8 @@ class FoundController extends Controller
      */
     public function show(string $id)
     {
-        return view ('action.detailfound');
+        $found = Found::find($id);
+        return view ('action.detailfound', compact('found'));
     }
 
     /**
@@ -88,7 +89,8 @@ class FoundController extends Controller
      */
     public function edit(string $id)
     {
-        return view ('action.editfound');
+        $found = Found::find($id);
+        return view ('action.editfound', compact('found'));
     }
 
     /**
@@ -116,5 +118,12 @@ class FoundController extends Controller
         return redirect()->route('founds.index');
     }
 
+
+
+    // public function claim(string $id)
+    // {
+    //     $found = Found::find($id);
+    //     return view ('action.createclaim', compact('found'));
+    // }
 
 }
