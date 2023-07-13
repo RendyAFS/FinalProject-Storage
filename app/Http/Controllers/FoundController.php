@@ -70,12 +70,6 @@ class FoundController extends Controller
             $request->file('foto')->move('foto-found/',$request->file('foto')->getClientOriginalName());
             $found->foto_barang_found=$request->file('foto')->getClientOriginalName();
         }
-        // $found->nomorhp = $request->nomorhp;
-
-        // if ($file != null) {
-        //     $found->foto_barang_found = $foto_barang_found;
-        //     $found->encrypted_filename = $encryptedFilename;
-        // }
 
         $found->save();
         return redirect()->route('founds.index');
@@ -112,11 +106,6 @@ class FoundController extends Controller
     {
         // ELOQUENT
         $found = Found::find($id);
-
-        //  // Hapus file terkait tidak menggunakan path jika ada
-        //  if ($found->foto_barang_found) {
-        //     Storage::delete('foto-found/'.$found->foto_barang_found);
-        // }
 
         $file = public_path('foto-found/').$found->foto_barang_found;
         if(file_exists($file)){
