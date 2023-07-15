@@ -39,6 +39,11 @@
                         <img src="{{ asset('foto-found/'.$found->foto_barang_found)}}" style="width: 150px">
                     @endif
                 </div>
+                <div class="col-md-12 mb-3">
+                    @if ($found->foto_identitas)
+                        <img src="{{ asset('foto-identitas/'.$found->foto_identitas)}}" style="width: 150px">
+                    @endif
+                </div>
             </div>
             <hr>
             <div class="row">

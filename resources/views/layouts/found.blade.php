@@ -28,10 +28,10 @@
         <tbody>
             @foreach ($founds as $found)
                 <tr class="text-center">
-                    <td>
+                    <td class="w-50">
                         {{ $found->nama_barang }} <br><br>
                         @if ($found->foto_barang_found)
-                            <img src="{{ asset('foto-found/'.$found->foto_barang_found)}}" style="width: 150px">
+                            <img src="{{ asset('foto-found/'.$found->foto_barang_found)}}" style="width: 400px">
                         @endif
                         <br><br>
                         <div>
@@ -39,7 +39,7 @@
                         </div>
                     </td>
                     <td class="align-middle">{{ $found->tgl_ditemukan }}</td>
-                    <td>{{ $found->deleted_at }}</td>
+                    <td class="align-middle">{{ $found->tgl_claim }}</td>
                 </tr>
             @endforeach
         </tbody>
