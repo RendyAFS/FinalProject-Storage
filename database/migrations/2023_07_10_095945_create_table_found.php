@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('foto_barang_found')->nullable();
 
 
-            // $table->date('tgl_claim')->nullable();
+            $table->date('tgl_claim')->nullable();
             $table->string('nomorhp')->nullable();
             // $table->string('foto_identitas');
             $table->timestamps();
