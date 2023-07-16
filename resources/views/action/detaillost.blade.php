@@ -11,7 +11,7 @@
             <hr>
             <div class="row">
                 <div class="col-md-4 mb-3">
-                    <label for="nama" class="form-label">Nama</label>
+                    <label for="nama" class="form-label">Nama Pelapor</label>
                     <h5>{{ $lost->nama }}</h5>
                 </div>
                 <div class="col-md-4 mb-3">
@@ -31,7 +31,10 @@
                     <h5>{{ $lost->nomorhp }}</h5>
                 </div>
                 <div class="col-md-12 mb-3">
-                    <h5>{{ $lost->foto_barang_lost }}</h5>
+                    <label for="nomorhp" class="form-label">Foto Barang Hilang</label>
+                    @if ($lost->foto_barang_lost)
+                        <img src="{{ asset('foto-lost/'.$lost->foto_barang_lost)}}" style="width: 150px">
+                    @endif
                 </div>
             </div>
             <hr>

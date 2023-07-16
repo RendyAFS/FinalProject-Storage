@@ -28,3 +28,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('losts', LostController::class);
 Route::resource('founds', FoundController::class);
 
+
+Route::get('/history', [FoundController::class, 'history'])->name('history');
+Route::get('/claim/{foundID}', [FoundController::class, 'claim'])->name('claim');
+Route::put('/storeclaim/{foundID}', [FoundController::class, 'storeclaim'])->name('storeclaim');

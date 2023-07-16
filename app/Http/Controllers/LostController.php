@@ -56,15 +56,6 @@ class LostController extends Controller
         }
 
         // Get File
-        $file = $request->file('foto');
-
-        if ($file != null) {
-            $foto_barang_lost = $file->getClientOriginalName();
-            $encryptedFilename = $file->hashName();
-
-            // Store File
-            $file->store('public/foto-lost/');
-        }
 
             // ELOQUENT
             $lost = New Lost;
@@ -74,9 +65,9 @@ class LostController extends Controller
             $lost->tgl_kehilangan = $request->tgl_kehilangan;
             $lost->nomorhp = $request->nomorhp;
 
-            if ($file != null) {
-                $lost->foto_barang_lost = $foto_barang_lost;
-                $lost->encrypted_filename = $encryptedFilename;
+            if($request->hasFile('foto')){
+                $request->file('foto')->move('foto-lost/',$request->file('foto')->getClientOriginalName());
+                $lost->foto_barang_lost=$request->file('foto')->getClientOriginalName();
             }
 
             $lost->save();
@@ -117,9 +108,9 @@ class LostController extends Controller
         // ELOQUENT
         $lost = Lost::find($id);
 
-         // Hapus file terkait tidak menggunakan path jika ada
-         if ($lost->encrypted_filename) {
-            Storage::delete('public/files/'.$lost->encrypted_filename);
+       $file = public_path('foto-lost/').$lost->foto_barang_lost;
+        if(file_exists($file)){
+            @unlink($file);
         }
 
         $lost->delete();
