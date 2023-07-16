@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Found;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
@@ -39,7 +40,6 @@ class FoundController extends Controller
          $messages = [
             'required' => ':attribute harus diisi.',
             'date' => 'Isi: Tanggal kehilangan',
-            // 'file' => 'dengan file foto',
 
         ];
 
@@ -48,15 +48,13 @@ class FoundController extends Controller
             'nama_barang' => 'required',
             'deskripsi_barang' => 'required',
             'tgl_ditemukan' => 'date',
-            // 'foto_barang_found' => 'required|file'
+            'foto_barang_found' => 'required'
         ], $messages);
 
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        // Get File
-        $file = $request->file('foto');
 
         // ELOQUENT
         $found = New Found;
@@ -64,9 +62,9 @@ class FoundController extends Controller
         $found->nama_barang = $request->nama_barang;
         $found->deskripsi_barang = $request->deskripsi_barang;
         $found->tgl_ditemukan = $request->tgl_ditemukan;
-        if($request->hasFile('foto')){
-            $request->file('foto')->move('foto-found/',$request->file('foto')->getClientOriginalName());
-            $found->foto_barang_found=$request->file('foto')->getClientOriginalName();
+        if($request->hasFile('foto_barang_found')){
+            $request->file('foto_barang_found')->move('foto-found/',$request->file('foto_barang_found')->getClientOriginalName());
+            $found->foto_barang_found=$request->file('foto_barang_found')->getClientOriginalName();
         }
 
         $found->save();
@@ -110,12 +108,103 @@ class FoundController extends Controller
             'nama_barang' => 'required',
             'deskripsi_barang' => 'required',
             'tgl_ditemukan' => 'date',
+            'foto_barang_found'=>'required'
+
+        ], $messages);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        // Get File
+        $file = $request->file('foto');
+
+        // ELOQUENT
+        $found = Found::find($id);
+        $found->nama_barang = $request->input('nama_barang');
+        $found->deskripsi_barang = $request->input('deskripsi_barang');
+        $found->tgl_ditemukan = $request ->input('tgl_ditemukan');
+
+        $lokasi = 'foto-found/'.$found->foto_barang_found;
+        if (File::exists($lokasi)) {
+            File::delete($lokasi);
+        }
+
+        if($request->hasFile('foto_barang_found')){
+            $request->file('foto_barang_found')->move('foto-found/',$request->file('foto_barang_found')->getClientOriginalName());
+            $found->foto_barang_found=$request->file('foto_barang_found')->getClientOriginalName();
+        }
+
+
+
+
+        $found->save();
+        return redirect()->route('founds.index', compact('found'));
+
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        // ELOQUENT
+        $found = Found::find($id);
+
+        // $file = public_path('foto-found/').$found->foto_barang_found;
+        // if(file_exists($file)){
+        //     @unlink($file);
+        // }
+        // $file = public_path('foto-identitas/').$found->foto_identitas;
+        // if(file_exists($file)){
+        //     @unlink($file);
+        // }
+
+        $found->delete();
+        return redirect()->route('founds.index');
+    }
+
+
+    public function history()
+    {
+         // Eloquent
+         $founds = Found::onlyTrashed()->get();
+
+         return view ('layouts.history', [
+             'founds' => $founds
+         ]);
+    }
+
+
+    public function claim(string $id)
+    {
+        $found = Found::find($id);
+        return view ('action.claim', compact('found'));
+    }
+
+
+    public function storeclaim(Request $request, string $id)
+    {
+        // Mendefinisikan pesan kesalahan untuk validasi input
+
+        $messages = [
+            'required' => ':attribute harus diisi.',
+            'numeric' => 'Isi :attribute dengan angka.',
+            'date' => 'Isi: Tanggal kehilangan',
+            // 'foto' => 'Lampirkan Foto Barang'
+        ];
+
+        // Validasi input menggunakan Validator
+        $validator = Validator::make($request->all(), [
+            'nama_barang' => 'required',
+            'deskripsi_barang' => 'required',
+            'tgl_ditemukan' => 'date',
             // 'foto_barang_found' => 'required',
 
             'nama' => 'required',
             'tgl_claim' => 'date',
-            'nomorhp'=> 'numeric'
-            // 'foto_identitas' => 'required',
+            'nomorhp'=> 'numeric',
+            'foto_identitas' => 'required',
         ], $messages);
 
         if ($validator->fails()) {
@@ -138,38 +227,15 @@ class FoundController extends Controller
         $found->nama = $request->input('nama');
         $found->tgl_claim = $request->input('tgl_claim');
         $found->nomorhp = $request->input('nomorhp');
-        if($request->hasFile('fotoi')){
-            $request->file('fotoi')->move('foto-identitas/',$request->file('fotoi')->getClientOriginalName());
-            $found->foto_identitas=$request->file('fotoi')->getClientOriginalName();
+        if($request->hasFile('foto_identitas')){
+            $request->file('foto_identitas')->move('foto-identitas/',$request->file('foto_identitas')->getClientOriginalName());
+            $found->foto_identitas=$request->file('foto_identitas')->getClientOriginalName();
         }
 
         $found->save();
+        $found->delete();
         return redirect()->route('founds.index', compact('found'));
 
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        // ELOQUENT
-        $found = Found::find($id);
-
-        $file = public_path('foto-found/').$found->foto_barang_found;
-        if(file_exists($file)){
-            @unlink($file);
-        }
-        $file = public_path('foto-identitas/').$found->foto_identitas;
-        if(file_exists($file)){
-            @unlink($file);
-        }
-
-        $found->delete();
-        return redirect()->route('founds.index');
-    }
-
-
-
 
 }

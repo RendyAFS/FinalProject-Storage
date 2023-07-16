@@ -11,10 +11,6 @@
             <hr>
             <div class="row">
                 <div class="col-md-4 mb-3">
-                    <label for="nama" class="form-label">Nama</label>
-                    <h5>{{ $found->nama }}</h5>
-                </div>
-                <div class="col-md-4 mb-3">
                     <label for="nama_barang" class="form-label">Nama Barang</label>
                     <h5>{{ $found->nama_barang }}</h5>
                 </div>
@@ -27,21 +23,9 @@
                     <h5>{{ $found->tgl_ditemukan }}</h5>
                 </div>
                 <div class="col-md-12 mb-3">
-                    <label for="tgl_claim" class="form-label">Tanggal Claim</label>
-                    <h5>{{ $found->tgl_claim }}</h5>
-                </div>
-                <div class="col-md-12 mb-3">
-                    <label for="nomorhp" class="form-label">Nomor Hp</label>
-                    <h5>{{ $found->nomorhp }}</h5>
-                </div>
-                <div class="col-md-12 mb-3">
+                    <label for="foto_barang_found" class="form-label">Foto Barang ditemukan</label>
                     @if ($found->foto_barang_found)
                         <img src="{{ asset('foto-found/'.$found->foto_barang_found)}}" style="width: 150px">
-                    @endif
-                </div>
-                <div class="col-md-12 mb-3">
-                    @if ($found->foto_identitas)
-                        <img src="{{ asset('foto-identitas/'.$found->foto_identitas)}}" style="width: 150px">
                     @endif
                 </div>
             </div>

@@ -35,8 +35,8 @@
                     </div>
 
                     <div class="col-md-12 mb-5">
-                        <label for="foto" class="form-label fw-bold p-2" style="color: #454545;">Foto Barang (Opsional)</label>
-                        <input type="file" class="form-control @error('foto_barang_found') is-invalid @enderror" name="foto" id="foto">
+                        <label for="foto_barang_found" class="form-label fw-bold p-2" style="color: #454545;">Foto Barang (Opsional)</label>
+                        <input type="file" class="form-control @error('foto_barang_found') is-invalid @enderror" name="foto_barang_found" id="foto">
                         @error('foto_barang_found')
                             <small class="text-danger text-left">{{ $message }}</small>
                         @enderror
