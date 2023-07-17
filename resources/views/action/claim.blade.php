@@ -15,7 +15,7 @@
                     <div class="col-md-12 mb-3 ">
                         <input class="form-control @error('nama_barang') is-invalid @enderror" type="text"
                                 name="nama_barang" id="nama_barang" value="{{ $found->nama_barang }}"
-                                placeholder="Nama Barang">
+                                placeholder="Nama Barang" >
                         @error('nama_barang')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror

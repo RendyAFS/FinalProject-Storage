@@ -30,10 +30,15 @@
             @foreach ($founds as $found)
                 <tr class="text-center">
                     <td class="align-middle">{{ $found->nama }}</td>
-                    <td class="align-middle">{{ $found->nama_barang }}</td>
+                    <td class="align-middle">
+                        {{ $found->nama_barang }} <br>
+                        @if($found->foto_barang_found)
+                            <img src="{{ asset('foto-found/'.$found->foto_barang_found)}}" style="width: 200px">
+                        @endif
+                    </td>
                     <td class="align-middle">{{ $found->tgl_claim }}</td>
                     <td class="align-middle">{{ $found->nomorhp }}</td>
-                    <td>
+                    <td class="align-middle">
                         @if($found->foto_barang_found)
                             <img src="{{ asset('foto-identitas/'.$found->foto_identitas)}}" style="width: 200px">
                         @endif
