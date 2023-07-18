@@ -2,16 +2,22 @@
 
 @section('content')
 <div class="row">
-    <div class="col-lg-9 col-xl-10">
-
+    <div class="col-lg-7 col-xl-8">
+        <a href="{{ route('display') }}" style="background-color: #FFA559;" class="btn btn-warning text-black fw-bold fs-5 mb-5 mt-3">
+            <i class="bi bi-cast"></i>
+        </a>
     </div>
     <div class="col-lg-3 col-xl-2">
-        <div class="d-grid gap-2">
+        <div class="d-grid">
             <a href="{{ route('founds.create') }}" style="background-color: #FFA559;" class="btn btn-warning text-black fw-bold fs-5 mb-5 mt-3">
                 Tambah <i class="bi bi-plus fw-bold fs-4"></i>
             </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-xl-2">
+        <div class="d-grid">
             <a href="{{ route('history') }}" style="background-color: #FFA559;" class="btn btn-warning text-black fw-bold fs-5 mb-5 mt-3">
-                History <i class="bi bi-plus fw-bold fs-4"></i>
+                History <i class="bi bi-clock-history"></i>
             </a>
         </div>
     </div>
@@ -48,7 +54,9 @@
 @push('scripts')
     <script type="module">
         $(document).ready(function() {
-            $('#tableFound').DataTable();
+            $('#tableFound').DataTable({
+                "lengthMenu": [5,10,25]
+            });
         });
     </script>
 @endpush

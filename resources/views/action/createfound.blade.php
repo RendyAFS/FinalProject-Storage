@@ -8,18 +8,21 @@
             <div class="p-5 bg-light rounded-3 border col-xl-6">
                 <div class="row">
                     {{-- Inputan--}}
+                    <label class="form-label fw-bold fs-3 pb-4 text-center" style="color: #454545;">Barang Ditemukan</label>
+                    <hr>
                     <div class="col-md-12 mb-3 ">
                         <input class="form-control border border-black text-center @error('nama_barang') is-invalid @enderror" type="text"
                             name="nama_barang" id="nama_barang" value="{{ old('nama_barang') }}"
                             placeholder="Nama Barang">
                         @error('nama_barang')
                             <small class="text-danger">{{ $message }}</small>
-                        @enderror
-                    </div>
+                            @enderror
+                        </div>
+
                     <div class="col-md-12 mb-4 ">
-                        <input class="form-control border border-black text-center @error('deskripsi_barang') is-invalid @enderror" type="text"
-                            name="deskripsi_barang" id="deskripsi_barang" value="{{ old('deskripsi_barang') }}"
-                            placeholder="Deskripsi Barang">
+                        <label for="deskripsi_barang" class="form-label fw-bold p-2" style="color: #454545;">Deskripsi Barang</label>
+                        <textarea class="form-control border border-black @error('deskripsi_barang') is-invalid @enderror"
+                        name="deskripsi_barang" id="deskripsi_barang" rows="4">{{ old('deskripsi_barang') }}</textarea>
                         @error('deskripsi_barang')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror

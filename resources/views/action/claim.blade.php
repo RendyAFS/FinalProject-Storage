@@ -8,34 +8,24 @@
         <div class="row justify-content-center">
             <div class="p-5 bg-light rounded-3 border col-xl-6">
                 <div class="row">
-                    <p class="fs-3 text-center fw-bold">
-                        Barang Ditemukan
-                    </p>
+                    <label class="form-label fw-bold fs-3 pb-4 text-center" style="color: #454545;">Claim Barang Ditemukan</label>
+                    <hr>
                     {{-- Inputan--}}
                     <div class="col-md-12 mb-3 ">
-                        <input class="form-control @error('nama_barang') is-invalid @enderror" type="text"
+                        <input class="form-control" type="text"
                                 name="nama_barang" id="nama_barang" value="{{ $found->nama_barang }}"
-                                placeholder="Nama Barang" >
-                        @error('nama_barang')
-                            <small class="text-danger">{{ $message }}</small>
-                        @enderror
+                                placeholder="Nama Barang" disabled>
                     </div>
                     <div class="col-md-12 mb-4 ">
-                        <input class="form-control @error('deskripsi_barang') is-invalid @enderror" type="text"
-                                name="deskripsi_barang" id="deskripsi_barang" value="{{ $found->deskripsi_barang }}"
-                                placeholder="Deskripsi Barang">
-                        @error('deskripsi_barang')
-                            <small class="text-danger">{{ $message }}</small>
-                        @enderror
+                         <textarea class="form-control border border-black  @error('deskripsi_barang') is-invalid @enderror"
+                            name="deskripsi_barang" id="deskripsi_barang" rows="5" disabled>{{ $found->deskripsi_barang }}
+                        </textarea>
                     </div>
                     <div class="col-md-12 mb-3   ">
                         <label for="tgl_ditemukan" class="fw-bold mb-1 text-center p-2 " style="color: #454545 "> Tanggal ditemukan </label>
-                        <input class="form-control @error('tgl_ditemukan') is-invalid @enderror" type="text"
+                        <input class="form-control " type="text"
                                 name="tgl_ditemukan" id="tgl_ditemukan" value="{{ $found->tgl_ditemukan }}"
-                                placeholder="Tanggal ditemukan">
-                        @error('tgl_ditemukan')
-                            <small class="text-danger">{{ $message }}</small>
-                        @enderror
+                                placeholder="Tanggal ditemukan" disabled>
                     </div>
 
                     <div class="col-md-12 mb-5">
@@ -45,10 +35,8 @@
                         @endif
                     </div>
 
+                   <label class="form-label fw-bold fs-3 pb-4 text-center" style="color: #454545;">Data Pengambil Barang</label>
                     <hr>
-                    <p class="fs-3 text-center fw-bold">
-                        Data Pengambilan Barang
-                    </p>
 
                     <div class="col-md-12 mb-3   ">
                         <input class="form-control @error('nama') is-invalid @enderror" type="text"
