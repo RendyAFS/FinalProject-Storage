@@ -196,9 +196,9 @@ class FoundController extends Controller
 
         // Validasi input menggunakan Validator
         $validator = Validator::make($request->all(), [
-            'nama_barang' => 'required',
-            'deskripsi_barang' => 'required',
-            'tgl_ditemukan' => 'date',
+            // 'nama_barang' => 'required',
+            // 'deskripsi_barang' => 'required',
+            // 'tgl_ditemukan' => 'date',
             // 'foto_barang_found' => 'required',
 
             'nama' => 'required',
@@ -216,13 +216,13 @@ class FoundController extends Controller
 
         // ELOQUENT
         $found = Found::find($id);
-        $found->nama_barang = $request->input('nama_barang');
-        $found->deskripsi_barang = $request->input('deskripsi_barang');
-        $found->tgl_ditemukan = $request ->input('tgl_ditemukan');
-        if($request->hasFile('foto')){
-            $request->file('foto')->move('foto-found/',$request->file('foto')->getClientOriginalName());
-            $found->foto_barang_found=$request->file('foto')->getClientOriginalName();
-        }
+        // $found->nama_barang = $request->input('nama_barang');
+        // $found->deskripsi_barang = $request->input('deskripsi_barang');
+        // $found->tgl_ditemukan = $request ->input('tgl_ditemukan');
+        // if($request->hasFile('foto')){
+        //     $request->file('foto')->move('foto-found/',$request->file('foto')->getClientOriginalName());
+        //     $found->foto_barang_found=$request->file('foto')->getClientOriginalName();
+        // }
 
         $found->nama = $request->input('nama');
         $found->tgl_claim = $request->input('tgl_claim');
@@ -238,4 +238,15 @@ class FoundController extends Controller
 
     }
 
+
+
+    public function display()
+    {
+         // Eloquent
+         $founds = Found::all();
+
+         return view ('layouts.display', [
+             'founds' => $founds,
+         ]);
+    }
 }

@@ -2,15 +2,15 @@
 
 @section('content')
 <div class="row">
-    <div class="col-lg-9 col-xl-10">
-
-    </div>
     <div class="col-lg-3 col-xl-2">
-        <div class="d-grid gap-2">
+        <div class=" gap-2">
             <a href="{{ route('founds.index') }}" style="background-color: #FFA559;" class="btn btn-warning text-black fw-bold fs-5 mb-5 mt-3">
-                Kembali <i class="bi bi-plus fw-bold fs-4"></i>
+                <i class="bi bi-arrow-return-left"></i>
             </a>
         </div>
+    </div>
+    <div class="col-lg-9 col-xl-10">
+
     </div>
 </div>
 <div class="table-responsive border border-warning p-3 rounded-3" style="color: #FFA559;">
@@ -31,7 +31,7 @@
                 <tr class="text-center">
                     <td class="align-middle">{{ $found->nama }}</td>
                     <td class="align-middle">
-                        {{ $found->nama_barang }} <br>
+                        {{ $found->nama_barang }} <br><br>
                         @if($found->foto_barang_found)
                             <img src="{{ asset('foto-found/'.$found->foto_barang_found)}}" style="width: 200px">
                         @endif

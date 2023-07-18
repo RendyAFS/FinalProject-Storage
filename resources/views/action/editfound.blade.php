@@ -8,9 +8,8 @@
         <div class="row justify-content-center">
             <div class="p-5 bg-light rounded-3 border col-xl-6">
                 <div class="row">
-                    <p class="fs-3 text-center fw-bold">
-                        Barang Ditemukan
-                    </p>
+                    <label class="form-label fw-bold fs-3 pb-4 text-center" style="color: #454545;">Edit Barang Ditemukan</label>
+                    <hr>
                     {{-- Inputan--}}
                     <div class="col-md-12 mb-3 ">
                         <label for="nama_barang" class="form-label fw-bold p-2" style="color: #454545;">Nama Barang</label>
@@ -23,9 +22,8 @@
                     </div>
                     <div class="col-md-12 mb-4 ">
                         <label for="deskripsi_barang" class="form-label fw-bold p-2" style="color: #454545;">Deskripsi Barang</label>
-                        <input class="form-control @error('deskripsi_barang') is-invalid @enderror" type="text"
-                                name="deskripsi_barang" id="deskripsi_barang" value="{{ $found->deskripsi_barang }}"
-                                placeholder="Deskripsi Barang">
+                        <textarea class="form-control border border-black @error('deskripsi_barang') is-invalid @enderror"
+                        name="deskripsi_barang" id="deskripsi_barang" rows="5">{{ $found->deskripsi_barang }}</textarea>
                         @error('deskripsi_barang')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
