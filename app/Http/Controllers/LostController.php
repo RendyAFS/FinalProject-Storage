@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Lost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
@@ -97,7 +98,53 @@ class LostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Mendefinisikan pesan kesalahan untuk validasi input
+
+        $messages = [
+            'required' => ':attribute harus diisi.',
+            'numeric' => 'Isi :attribute dengan angka.',
+            'date' => 'Isi: Tanggal kehilangan',
+            // 'foto' => 'Lampirkan Foto Barang'
+        ];
+
+        // Validasi input menggunakan Validator
+        $validator = Validator::make($request->all(), [
+            'nama_barang' => 'required',
+            'deskripsi_barang' => 'required',
+            'tgl_kehilangan' => 'date',
+            // 'foto_barang_found'=>'required'
+
+        ], $messages);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        // Get File
+        $file = $request->file('foto');
+
+        // ELOQUENT
+        $lost = Lost::find($id);
+        $lost->nama_barang = $request->input('nama_barang');
+        $lost->deskripsi_barang = $request->input('deskripsi_barang');
+        $lost->tgl_kehilangan = $request ->input('tgl_kehilangan');
+
+        $lokasi = 'foto-lost/'.$lost->foto_barang_lost;
+        if (File::exists($lokasi)) {
+            File::delete($lokasi);
+        }
+
+        if($request->hasFile('foto_barang_lost')){
+            $request->file('foto_barang_lost')->move('foto-lost/',$request->file('foto_barang_lost')->getClientOriginalName());
+            $lost->foto_barang_lost=$request->file('foto_barang_lost')->getClientOriginalName();
+        }
+
+
+
+
+        $lost->save();
+        return redirect()->route('losts.index', compact('lost'));
+
     }
 
     /**
