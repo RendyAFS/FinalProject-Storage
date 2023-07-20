@@ -27,7 +27,7 @@
             @foreach ($losts as $lost)
                 <tr>
                     <td>{{ $lost->nama_barang }}</td>
-                    <td>{{ $lost->tgl_kehilangan }}</td>
+                    <td>{{ date('d-m-Y', strtotime($lost->tgl_kehilangan)) }}</td>
                     <td>@include('action.actionlost')</td>
                 </tr>
             @endforeach
