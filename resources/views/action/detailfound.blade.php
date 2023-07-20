@@ -10,11 +10,11 @@
             </div>
             <hr>
             <div class="row">
-                <div class="col-md-4 mb-3">
+                <div class="col-md-12 mb-3">
                     <label for="nama_barang" class="form-label">Nama Barang</label>
                     <h5>{{ $found->nama_barang }}</h5>
                 </div>
-                <div class="col-md-4 mb-3">
+                <div class="col-md-12 mb-3">
                     <label for="deskripsi_barang" class="form-label">Deskripsi Barang</label>
                     <h5>{{ $found->deskripsi_barang }}</h5>
                 </div>
