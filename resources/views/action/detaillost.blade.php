@@ -24,9 +24,9 @@
                 </div>
                 <div class="col-md-12 mb-3">
                     <label for="tgl_kehilangan" class="form-label">Tanggal Kehilangan</label>
-                    <h5>{{ $lost->tgl_kehilangan }}</h5>
+                    <h5>{{ date('d-m-Y', strtotime($lost->tgl_kehilangan)) }}</h5>
                 </div>
-                <div class="col-md-12 mb-3">
+                <div class="col-md-12 mb-3">s
                     <label for="nomorhp" class="form-label">Nomor Hp</label>
                     <h5>{{ $lost->nomorhp }}</h5>
                 </div>

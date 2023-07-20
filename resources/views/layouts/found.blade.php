@@ -44,7 +44,7 @@
                             @include('action.actionfound')
                         </div>
                     </td>
-                    <td class="align-middle w-25">{{ $found->tgl_ditemukan }}</td>
+                    <td class="align-middle w-25">{{ date('d-m-Y', strtotime($found->tgl_ditemukan)) }}</td>
                 </tr>
             @endforeach
         </tbody>
