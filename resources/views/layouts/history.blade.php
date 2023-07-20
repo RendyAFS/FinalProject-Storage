@@ -36,7 +36,7 @@
                             <img src="{{ asset('foto-found/'.$found->foto_barang_found)}}" style="width: 200px">
                         @endif
                     </td>
-                    <td class="align-middle">{{ $found->tgl_claim }}</td>
+                    <td class="align-middle">{{ date('d-m-Y', strtotime($found->tgl_claim)) }}</td>
                     <td class="align-middle">{{ $found->nomorhp }}</td>
                     <td class="align-middle">
                         @if($found->foto_barang_found)
