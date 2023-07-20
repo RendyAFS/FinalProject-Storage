@@ -4,9 +4,7 @@
     <div class="container">
         <div class="row" id="logo-home">
             <div class="col" style="color: white">
-                <p>
-                    LOGO
-                </p>
+                <img src="{{ asset('/images/lo-fo hori.png')}}" style="width: 350px">
             </div>
         </div>
 
