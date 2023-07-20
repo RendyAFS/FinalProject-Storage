@@ -98,13 +98,11 @@ class LostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        // Mendefinisikan pesan kesalahan untuk validasi input
 
         $messages = [
             'required' => ':attribute harus diisi.',
             'numeric' => 'Isi :attribute dengan angka.',
             'date' => 'Isi: Tanggal kehilangan',
-            // 'foto' => 'Lampirkan Foto Barang'
         ];
 
         // Validasi input menggunakan Validator
@@ -112,7 +110,7 @@ class LostController extends Controller
             'nama_barang' => 'required',
             'deskripsi_barang' => 'required',
             'tgl_kehilangan' => 'date',
-            // 'foto_barang_found'=>'required'
+            'foto_barang_lost'=>'required'
 
         ], $messages);
 

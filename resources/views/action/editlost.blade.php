@@ -41,14 +41,14 @@
                     <div class="col-md-12 mb-5">
                         <label for="foto" class="form-label fw-bold p-2" style="color: #454545;">Foto Barang Hilang</label>
                         @if ($lost->foto_barang_lost)
-                            <img src="{{ asset('foto-found/'.$found->foto_barang_found)}}" style="width: 400px">
+                            <img src="{{ asset('foto-lost/'.$lost->foto_barang_lost)}}" style="width: 400px">
                         @endif
                     </div>
                     <div class="col-md-12 mb-5">
-                        <label for="foto_barang_found" class="form-label fw-bold p-2" style="color: #454545;">Ubah Foto Barang</label>
-                        <input type="file" class="form-control @error('foto_barang_found') is-invalid @enderror"
-                        name="foto_barang_found" id="foto">
-                        @error('foto_barang_found')
+                        <label for="foto_barang_lost" class="form-label fw-bold p-2" style="color: #454545;">Ubah Foto Barang</label>
+                        <input type="file" class="form-control @error('foto_barang_lost') is-invalid @enderror"
+                        name="foto_barang_lost" id="foto">
+                        @error('foto_barang_lost')
                             <small class="text-danger text-left">{{ $message }}</small>
                         @enderror
                     </div>
