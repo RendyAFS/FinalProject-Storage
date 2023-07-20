@@ -161,4 +161,32 @@ class LostController extends Controller
         $lost->delete();
         return redirect()->route('losts.index');
     }
+
+
+
+    public function wa(string $id)
+    {
+        $lost = Lost::find($id);
+
+        if ($lost) {
+            // Mengambil nomor hp dari kolom 'nomorhp' pada tabel Lost
+            $nomorhp = $lost->nomorhp;
+            $nama = $lost->nama;
+            $nama_barang = $lost->nama_barang;
+            $deskripsi_barang = $lost->deskripsi_barang;
+
+            // Menghapus angka pertama dari nomor hp jika dimulai dengan '0'
+            if (substr($nomorhp, 0, 1) === '0') {
+                $nomorhp = substr($nomorhp, 1);
+            }
+
+            // Membangun URL untuk WhatsApp
+            $url = "https://wa.me/62{$nomorhp}?text=" . urlencode("Kami dengan senang hati mengumumkan bahwa \"barang yang hilang dengan pelapor kehilangan atas nama: {$nama} dengan barang \"{$nama_barang}\"  telah ditemukan!!!\n\nDengan ciri-ciri:\n{$deskripsi_barang} \n\nBagi Anda yang kehilangan barang dan telah melaporkannya sebelumnya, harap segera mengunjungi satpam ITTS untuk melakukan pengambilan barang tersebut dan proses \"Claim barang\".\n\nAlamat ITTS:\nJl. Ketintang No.156, Ketintang, Kec. Gayungan, Surabaya, Jawa Timur 60231\n\nTerima kasih atas perhatiannya. Semoga barang Anda dapat segera kembali ke tangan yang tepat.\n\nHormat kami,\nManajemen ITTS");
+
+            // Redirect ke URL WhatsApp
+            header("Location: $url");
+            $lost->delete();
+            exit;
+        }
+    }
 }

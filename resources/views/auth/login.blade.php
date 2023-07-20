@@ -2,9 +2,10 @@
 
 @section('content')
 <div class="container justify-content-center">
-    <p class="fs-1 fw-bold text-center mt-5 pt-5" style="color: #FFFFFF;">
-        L O G O
-    </p>
+    <div class="text-center pt-5 mt-5 mb-4">
+        <img src="{{ asset('/images/lo-fo hori.png')}}" style="width: 350px">
+    </div>
+
     <div class="row justify-content-center">
         <div class="col-md-4 justify-content-center">
             <div class="card justify-content-center">
