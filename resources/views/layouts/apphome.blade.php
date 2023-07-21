@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" id="html">
 <head>
@@ -18,32 +17,24 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-
 </head>
 <body id="bg-login">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light shadow-sm" id="navbar">
             <div class="container">
-                <a class="navbar-brand fw-bold " href="{{ url('/home') }}">
-                    <i class="bi bi-house-fill"></i>
+                <a class="navbar-brand fw-bold" href="{{ url('/home') }}">
+                    LOST & FOUND
                 </a>
                 <button class="navbar-toggler"  type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon" style="color: #FFA559;"></span>
+                    <span class="navbar-toggler-icon" style="color: #FFA559;"  ></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <a class="navbar-brand{{ Request::is('losts') ? ' active' : '' }}"
-                    style="color: {{ Request::is('losts') ? '#FFA559' : '#FFFFFF' }};
-                            text-decoration: {{ Request::is('losts') ? 'underline' : 'none' }};"
-                    href="{{ url('/losts') }}">
-                        Lost
-                    </a>
-                    <a class="navbar-brand{{ Request::is('founds') ? ' active' : '' }}"
-                    style="color: {{ Request::is('founds') ? '#FFA559' : '#FFFFFF' }};
-                            text-decoration: {{ Request::is('founds') ? 'underline' : 'none' }};"
-                    href="{{ url('/founds') }}">
-                        Found
-                    </a>
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav me-auto">
+
+                    </ul>
+
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->

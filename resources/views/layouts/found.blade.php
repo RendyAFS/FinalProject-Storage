@@ -2,24 +2,26 @@
 
 @section('content')
 <div class="row">
-    <div class="col-lg-7 col-xl-8">
+
+    <div class="col-lg-2 col-xl-6">
+        <P class="text-white mt-3 fs-3">
+            Found Table
+        </P>
+    </div>
+    <div class="col-lg-4 col-xl-2 d-grid align-middle">
         <a href="{{ route('display') }}" style="background-color: #FFA559;" class="btn btn-warning text-black fw-bold fs-5 mb-5 mt-3">
-            <i class="bi bi-cast"></i>
+            Display <i class="bi bi-cast "></i>
         </a>
     </div>
-    <div class="col-lg-3 col-xl-2">
-        <div class="d-grid">
-            <a href="{{ route('founds.create') }}" style="background-color: #FFA559;" class="btn btn-warning text-black fw-bold fs-5 mb-5 mt-3">
-                Tambah <i class="bi bi-plus fw-bold fs-4"></i>
-            </a>
-        </div>
+    <div class="col-lg-3 col-xl-2 d-grid">
+        <a href="{{ route('founds.create') }}" style="background-color: #FFA559;" class="btn btn-warning text-black fw-bold fs-5 mb-5 mt-3">
+            Add <i class="bi bi-plus "></i>
+        </a>
     </div>
-    <div class="col-lg-3 col-xl-2">
-        <div class="d-grid">
-            <a href="{{ route('history') }}" style="background-color: #FFA559;" class="btn btn-warning text-black fw-bold fs-5 mb-5 mt-3">
-                History <i class="bi bi-clock-history"></i>
-            </a>
-        </div>
+    <div class="col-lg-3 col-xl-2 d-grid">
+        <a href="{{ route('history') }}" style="background-color: #FFA559;" class="btn btn-warning text-black fw-bold fs-5 mb-5 mt-3">
+            History <i class="bi bi-clock-history"></i>
+        </a>
     </div>
 </div>
 <div class="table-responsive border border-warning p-3 rounded-3" style="color: #FFA559;">

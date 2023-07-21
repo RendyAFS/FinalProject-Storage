@@ -3,12 +3,14 @@
 @section('content')
 <div class="row">
     <div class="col-lg-9 col-xl-10">
-
+        <P class="text-white mt-3 fs-3">
+            Lost Table
+        </P>
     </div>
     <div class="col-lg-3 col-xl-2">
         <div class="d-grid gap-2">
             <a href="{{ route('losts.create') }}" style="background-color: #FFA559;" class="btn btn-warning text-black fw-bold fs-5 mb-5 mt-3">
-                Tambah <i class="bi bi-plus fw-bold fs-4"></i>
+                Add <i class="bi bi-plus fw-bold fs-4"></i>
             </a>
         </div>
     </div>
@@ -20,7 +22,7 @@
             <tr class="fs-5">
                 <th class="w-75">Nama Barang</th>
                 <th class="w-25">Tanggal Kehilangan</th>
-                <th class="w-25">Action</th>
+                <th class="w-25">Opsi</th>
             </tr>
         </thead>
         <tbody>
