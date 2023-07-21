@@ -10,7 +10,6 @@
         </div>
     </div>
     <div class="col-lg-9 col-xl-10">
-
     </div>
 </div>
 <div class="table-responsive border border-warning p-3 rounded-3" style="color: #FFA559;">
