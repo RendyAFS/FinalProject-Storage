@@ -4,9 +4,6 @@
     <div class="container">
         <div class="row" id="logo-home">
             <div class="col" style="color: white">
-                <p>
-                    LOGO
-                </p>
             </div>
         </div>
 
