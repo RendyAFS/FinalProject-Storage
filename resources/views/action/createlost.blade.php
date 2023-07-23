@@ -26,9 +26,9 @@
                         @enderror
                     </div>
                     <div class="col-md-12 mb-4 ">
-                        <input class="form-control border border-black text-center @error('deskripsi_barang') is-invalid @enderror" type="text"
-                            name="deskripsi_barang" id="deskripsi_barang" value="{{ old('deskripsi_barang') }}"
-                            placeholder="Deskripsi Barang">
+                        <label for="deskripsi_barang" class="form-label fw-bold p-2" style="color: #454545;">Deskripsi Barang</label>
+                        <textarea class="form-control border border-black @error('deskripsi_barang') is-invalid @enderror"
+                        name="deskripsi_barang" id="deskripsi_barang" rows="4">{{ old('deskripsi_barang') }}</textarea>
                         @error('deskripsi_barang')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
