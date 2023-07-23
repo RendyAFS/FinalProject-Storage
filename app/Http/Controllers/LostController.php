@@ -16,11 +16,26 @@ class LostController extends Controller
     public function index()
     {
         // Eloquent
+        // $losts = Lost::all();
+
+        // return view ('layouts.lost', [
+        //     'losts' => $losts
+        // ]);
+        return view('layouts.lost');
+    }
+
+    public function getData(Request $request)
+    {
         $losts = Lost::all();
 
-        return view ('layouts.lost', [
-            'losts' => $losts
-        ]);
+        if ($request->ajax()) {
+            return datatables()->of($losts)
+                ->addIndexColumn()
+                ->addColumn('actions', function($lost) {
+                    return view('action.actionlost', compact('lost'));
+                })
+                ->toJson();
+        }
     }
 
     /**
