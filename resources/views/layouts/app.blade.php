@@ -86,6 +86,7 @@
         <main class="py-4 px-5 mx-5">
             @yield('content')
             @stack('scripts')
+            @include('sweetalert::alert')
 
         </main>
     </div>
