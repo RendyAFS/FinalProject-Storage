@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.apphome')
 
 @section('content')
     <div class="container">
-        <div class="row" id="logo-home">
+        <div class="row pt-5" id="logo-home">
             <div class="col" style="color: white">
                 <img src="{{ asset('/images/lo-fo hori.png')}}" style="width: 350px">
             </div>

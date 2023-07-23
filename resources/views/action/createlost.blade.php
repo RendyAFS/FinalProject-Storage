@@ -5,6 +5,7 @@
     <form action="{{ route('losts.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row justify-content-center">
+
             <div class="p-5 bg-light rounded-3 border col-xl-6">
                 <div class="row">
                     {{-- Inputan--}}
