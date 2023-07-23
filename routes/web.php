@@ -28,12 +28,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware(['auth'])->group(function () {
     Route::resource('losts', LostController::class);
     Route::get('/wa/{id}', [LostController::class, 'wa'])->name('wa');
-
+    Route::get('getlosts', [LostController::class,'getData'])->name('losts.getData');
 
     Route::resource('founds', FoundController::class);
+    Route::get('getfounds', [FoundController::class,'getData'])->name('founds.getData');
     Route::get('/history', [FoundController::class, 'history'])->name('history');
     Route::get('/claim/{foundID}', [FoundController::class, 'claim'])->name('claim');
     Route::put('/storeclaim/{foundID}', [FoundController::class, 'storeclaim'])->name('storeclaim');
     Route::get('/display', [FoundController::class, 'display'])->name('display');
 });
-
