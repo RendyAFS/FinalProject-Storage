@@ -6,6 +6,7 @@ use App\Models\Lost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 
 class LostController extends Controller
@@ -21,6 +22,9 @@ class LostController extends Controller
         // return view ('layouts.lost', [
         //     'losts' => $losts
         // ]);
+
+        confirmDelete();
+
         return view('layouts.lost');
     }
 
@@ -85,6 +89,8 @@ class LostController extends Controller
                 $request->file('foto')->move('foto-lost/',$request->file('foto')->getClientOriginalName());
                 $lost->foto_barang_lost=$request->file('foto')->getClientOriginalName();
             }
+
+            Alert::success('Added Successfully', 'Lost Data Created.');
 
             $lost->save();
             return redirect()->route('losts.index');
@@ -153,7 +159,7 @@ class LostController extends Controller
         }
 
 
-
+        Alert::success('Change Successfully', 'Lost Data Updated.');
 
         $lost->save();
         return redirect()->route('losts.index', compact('lost'));
@@ -172,6 +178,8 @@ class LostController extends Controller
         if(file_exists($file)){
             @unlink($file);
         }
+
+        Alert::success('Added Successfully', 'Lost Data Deleted.');
 
         $lost->delete();
         return redirect()->route('losts.index');
