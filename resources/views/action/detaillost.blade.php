@@ -22,7 +22,8 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="deskripsi_barang" class="form-label fs-5 fw-bold text-decoration-underline">Deskripsi Barang</label>
-                    <h5>{{ $lost->deskripsi_barang }}</h5>
+                    <textarea class="form-control border border-black "
+                    name="deskripsi_barang" id="deskripsi_barang" rows="5">{{ $lost->deskripsi_barang }}</textarea>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="tgl_kehilangan" class="form-label fs-5 fw-bold text-decoration-underline">Tanggal Kehilangan</label>
