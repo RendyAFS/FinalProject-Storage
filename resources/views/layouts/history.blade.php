@@ -10,7 +10,6 @@
         </div>
     </div>
     <div class="col-lg-9 col-xl-10">
-
     </div>
 </div>
 <div class="table-responsive border border-warning p-3 rounded-3" style="color: #FFA559;">
@@ -36,7 +35,7 @@
                             <img src="{{ asset('foto-found/'.$found->foto_barang_found)}}" style="width: 200px">
                         @endif
                     </td>
-                    <td class="align-middle">{{ $found->tgl_claim }}</td>
+                    <td class="align-middle">{{ date('d-m-Y', strtotime($found->tgl_claim)) }}</td>
                     <td class="align-middle">{{ $found->nomorhp }}</td>
                     <td class="align-middle">
                         @if($found->foto_barang_found)

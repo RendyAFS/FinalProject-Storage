@@ -20,6 +20,21 @@ class FoundController extends Controller
          return view ('layouts.found', [
              'founds' => $founds
          ]);
+        //  return view('layouts.found');
+    }
+
+    public function getData(Request $request)
+    {
+        $founds = Found::all();
+
+        if ($request->ajax()) {
+            return datatables()->of($founds)
+                ->addIndexColumn()
+                ->addColumn('actions', function($found) {
+                    return view('action.actionfound', compact('found'));
+                })
+                ->toJson();
+        }
     }
 
     /**

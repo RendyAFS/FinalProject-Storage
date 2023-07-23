@@ -20,7 +20,7 @@
                 </div>
                 <div class="col-md-12 mb-3">
                     <label for="tgl_ditemukan" class="form-label">Tanggal ditemukan</label>
-                    <h5>{{ $found->tgl_ditemukan }}</h5>
+                    <h5>{{ date('d-m-Y', strtotime($found->tgl_ditemukan)) }}</h5>
                 </div>
                 <div class="col-md-12 mb-3">
                     <label for="foto_barang_found" class="form-label">Foto Barang ditemukan</label>

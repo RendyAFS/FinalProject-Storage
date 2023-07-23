@@ -1,10 +1,10 @@
 @extends('layouts.appdisplay')
 
 @section('content')
-    <div class="container mt-4">
+    <div class="container mt-2">
         <div class="row">
             <div class="col-12">
-                <p class="fw-bold fs-2 pb-5 mb-4 text-center" style="color: white;">
+                <p class="fw-bold fs-2 pb-4 mb-4 text-center" style="color: white;">
                     Barang ditemukan
                 </p>
             </div>
