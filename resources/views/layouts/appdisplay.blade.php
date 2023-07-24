@@ -21,21 +21,14 @@
 </head>
 <body id="bg-login">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm" id="navbar">
-            <div class="container">
-                <a class="navbar-brand fw-bold" href="{{ route('founds.index') }}">
-                    <img src="{{ ('images/lo-fo hori.png')}}" style="width: 100px">
-                </a>
-                <button class="navbar-toggler"  type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon" style="color: #FFA559;"  ></span>
-                </button>
-            </div>
-        </nav>
-
+        <div class="mt-3 ms-3">
+            <a href="{{ route('founds.index') }}">
+                <img src="{{ ('images/lo-fo hori.png')}}" style="width: 150px">
+            </a>
+        </div>
         <main class="py-4 px-5 mx-5">
             @yield('content')
             @stack('scripts')
-
         </main>
     </div>
 </body>
