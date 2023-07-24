@@ -22,9 +22,9 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light shadow-sm" id="navbar">
             <div class="container">
-                <a class="navbar-brand fw-bold" href="{{ url('/home') }}">
+                {{-- <a class="navbar-brand fw-bold" href="{{ url('/home') }}">
                     LOST & FOUND
-                </a>
+                </a> --}}
                 <button class="navbar-toggler"  type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon" style="color: #FFA559;"  ></span>
                 </button>

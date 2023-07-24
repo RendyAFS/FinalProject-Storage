@@ -16,8 +16,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
 
-
-
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
@@ -26,7 +24,7 @@
         <nav class="navbar navbar-expand-md navbar-light shadow-sm" id="navbar">
             <div class="container">
                 <a class="navbar-brand fw-bold" href="{{ route('founds.index') }}">
-                    <i class="bi bi-house-fill"></i> LOST & FOUND
+                    <img src="{{ ('images/lo-fo hori.png')}}" style="width: 100px">
                 </a>
                 <button class="navbar-toggler"  type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon" style="color: #FFA559;"  ></span>
