@@ -16,16 +16,13 @@ return new class extends Migration
             $table->string('nama') ->nullable();
             $table->string('nama_barang');
             $table->string('deskripsi_barang');
-            // $table->string('foto_barang');
             $table->date('tgl_ditemukan');
             $table->string('foto_identitas')->nullable();
             $table->string('foto_barang_found')->nullable();
-
-
             $table->date('tgl_claim')->nullable();
             $table->string('nomorhp')->nullable();
-            // $table->string('foto_identitas');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent()->timezone('Asia/Jakarta');
+            $table->timestamp('updated_at')->useCurrent()->timezone('Asia/Jakarta');
         });
     }
 
