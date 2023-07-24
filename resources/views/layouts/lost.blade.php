@@ -2,15 +2,22 @@
 
 @section('content')
 <div class="row">
-    <div class="col-lg-9 col-xl-10">
+    <div class="col-lg-6 col-xl-9">
         <P class="text-white mt-3 fs-3">
             Lost Table
         </P>
     </div>
+    <div class="col-lg-3 col-xl-1">
+        <div class="d-grid">
+            <a href="{{ url('/schedules') }}" style="background-color: #FFA559;" class="btn btn-warning text-black fw-bold fs-5 mb-5 mt-3">
+                <i class="bi bi-arrow-repeat"></i>
+            </a>
+        </div>
+    </div>
     <div class="col-lg-3 col-xl-2">
-        <div class="d-grid gap-2">
+        <div class="d-grid">
             <a href="{{ route('losts.create') }}" style="background-color: #FFA559;" class="btn btn-warning text-black fw-bold fs-5 mb-5 mt-3">
-                Add <i class="bi bi-plus fw-bold fs-4"></i>
+                Add <i class="bi bi-plus"></i>
             </a>
         </div>
     </div>
@@ -32,27 +39,9 @@
                 <th class="w-25">Opsi</th>
             </tr>
         </thead>
-        {{-- <tbody>
-            @foreach ($losts as $lost)
-                <tr>
-                    <td>{{ $lost->nama_barang }}</td>
-                    <td>{{ date('d-m-Y', strtotime($lost->tgl_kehilangan)) }}</td>
-                    <td>@include('action.actionlost')</td>
-                </tr>
-            @endforeach
-        </tbody> --}}
     </table>
 </div>
 @endsection
-
-{{-- @push('scripts')
-    <script type="module">
-        $(document).ready(function() {
-            $('#tableLost').DataTable();
-        });
-    </script>
-@endpush --}}
-
 @push('scripts')
     <script type="module">
         $(document).ready(function() {
@@ -79,14 +68,15 @@
                     [10, 25, 50, 100, "All"],
                 ],
             });
+
             $(".datatable").on("click", ".btn-delete", function (e) {
                 e.preventDefault();
 
                 var form = $(this).closest("form");
-                var name = $(this).data("name");
+                // var name = $(this).data("name");
 
                 Swal.fire({
-                    title: "Are you sure want to delete\n" + name + "?",
+                    title: "Are you sure want to delete\n",
                     text: "You won't be able to revert this!",
                     icon: "warning",
                     showCancelButton: true,
@@ -99,7 +89,6 @@
                 });
             });
         });
-
     </script>
 @endpush
 
