@@ -13,8 +13,9 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            LostSeeder::class,
-            FoundSeeder::class
+            // LostSeeder::class,
+            // FoundSeeder::class
+            AdminSeeder::class
         ]);
     }
 }

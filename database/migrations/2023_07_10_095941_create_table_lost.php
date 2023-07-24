@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('nomorhp');
             $table->date('tgl_kehilangan');
             $table->string('foto_barang_lost')->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent()->timezone('Asia/Jakarta');
+            $table->timestamp('updated_at')->useCurrent()->timezone('Asia/Jakarta');
         });
     }
 

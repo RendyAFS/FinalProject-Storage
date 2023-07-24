@@ -10,4 +10,5 @@ class Lost extends Model
 {
     // use SoftDeletes;
     use HasFactory;
+    protected $dateFormat = 'Y-m-d';
 }

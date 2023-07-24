@@ -8,6 +8,8 @@
 
             <div class="p-5 bg-light rounded-3 border col-xl-6">
                 <div class="row">
+                    <label class="form-label fw-bold fs-3 pb-4 text-center" style="color: #454545;">Form Barang Hilang</label>
+                    <hr>
                     {{-- Inputan--}}
                     <div class="col-md-12 mb-3 ">
                         <input class="form-control border border-black text-center @error('nama') is-invalid @enderror" type="text"
