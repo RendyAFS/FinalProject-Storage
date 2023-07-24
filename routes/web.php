@@ -3,8 +3,10 @@
 use App\Http\Controllers\FoundController;
 use App\Http\Controllers\LostController;
 use App\Http\Controllers\ClaimController;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,4 +38,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/claim/{foundID}', [FoundController::class, 'claim'])->name('claim');
     Route::put('/storeclaim/{foundID}', [FoundController::class, 'storeclaim'])->name('storeclaim');
     Route::get('/display', [FoundController::class, 'display'])->name('display');
+});
+
+Route::get('/test', function(){
+    $dateThreshold = Carbon::now()->subDays(90)->toDateString();
+
+    DB::table('losts')->where('tgl_kehilangan', '<', $dateThreshold)->delete();
 });
