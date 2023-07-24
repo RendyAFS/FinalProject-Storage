@@ -15,13 +15,10 @@ class FoundController extends Controller
      */
     public function index()
     {
-         // Eloquent
-         $founds = Found::all();
 
-         return view ('layouts.found', [
-             'founds' => $founds
-         ]);
-        //  return view('layouts.found');
+        confirmDelete();
+
+         return view('layouts.found');
     }
 
     public function getData(Request $request)
@@ -53,9 +50,10 @@ class FoundController extends Controller
     {
 
          // Mendefinisikan pesan kesalahan untuk validasi input
-         $messages = [
+        $messages = [
             'required' => ':attribute harus diisi.',
             'date' => 'Isi: Tanggal kehilangan',
+            'mimes' => 'Format file : harus .jpg, .png, atau .jpeg'
 
         ];
 
@@ -64,7 +62,7 @@ class FoundController extends Controller
             'nama_barang' => 'required',
             'deskripsi_barang' => 'required',
             'tgl_ditemukan' => 'date',
-            'foto_barang_found' => 'required'
+            'foto_barang_found' => 'required|mimes:jpg,png,jpeg'
         ], $messages);
 
         if ($validator->fails()) {
@@ -118,7 +116,7 @@ class FoundController extends Controller
             'required' => ':attribute harus diisi.',
             'numeric' => 'Isi :attribute dengan angka.',
             'date' => 'Isi: Tanggal kehilangan',
-            // 'foto' => 'Lampirkan Foto Barang'
+            'mimes' => 'Format file :harus .jpg, .png, atau .jpeg'
         ];
 
         // Validasi input menggunakan Validator
@@ -126,7 +124,7 @@ class FoundController extends Controller
             'nama_barang' => 'required',
             'deskripsi_barang' => 'required',
             'tgl_ditemukan' => 'date',
-            'foto_barang_found'=>'required'
+            'foto_barang_found'=>'required|mimes:jpg,png,jpeg'
 
         ], $messages);
 
@@ -169,20 +167,14 @@ class FoundController extends Controller
         // ELOQUENT
         $found = Found::find($id);
 
-        // $file = public_path('foto-found/').$found->foto_barang_found;
-        // if(file_exists($file)){
-        //     @unlink($file);
-        // }
-        // $file = public_path('foto-identitas/').$found->foto_identitas;
-        // if(file_exists($file)){
-        //     @unlink($file);
-        // }
-
         Alert::success('Deleted Successfully', 'Found Data Deleted Successfully.');
 
         $found->delete();
         return redirect()->route('founds.index');
     }
+
+
+
 
 
     public function history()
@@ -211,20 +203,16 @@ class FoundController extends Controller
             'required' => ':attribute harus diisi.',
             'numeric' => 'Isi :attribute dengan angka.',
             'date' => 'Isi: Tanggal kehilangan',
-            // 'foto' => 'Lampirkan Foto Barang'
+            'mimes' => 'Format file :harus .jpg, .png, atau .jpeg'
         ];
 
         // Validasi input menggunakan Validator
         $validator = Validator::make($request->all(), [
-            // 'nama_barang' => 'required',
-            // 'deskripsi_barang' => 'required',
-            // 'tgl_ditemukan' => 'date',
-            // 'foto_barang_found' => 'required',
 
             'nama' => 'required',
             'tgl_claim' => 'date',
             'nomorhp'=> 'numeric',
-            'foto_identitas' => 'required',
+            'foto_identitas' => 'required|mimes:jpg,png,jpeg',
         ], $messages);
 
         if ($validator->fails()) {
@@ -236,13 +224,6 @@ class FoundController extends Controller
 
         // ELOQUENT
         $found = Found::find($id);
-        // $found->nama_barang = $request->input('nama_barang');
-        // $found->deskripsi_barang = $request->input('deskripsi_barang');
-        // $found->tgl_ditemukan = $request ->input('tgl_ditemukan');
-        // if($request->hasFile('foto')){
-        //     $request->file('foto')->move('foto-found/',$request->file('foto')->getClientOriginalName());
-        //     $found->foto_barang_found=$request->file('foto')->getClientOriginalName();
-        // }
 
         $found->nama = $request->input('nama');
         $found->tgl_claim = $request->input('tgl_claim');

@@ -40,8 +40,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/display', [FoundController::class, 'display'])->name('display');
 });
 
-Route::get('/test', function(){
+Route::get('/schedules', function(){
     $dateThreshold = Carbon::now()->subDays(90)->toDateString();
-
     DB::table('losts')->where('tgl_kehilangan', '<', $dateThreshold)->delete();
+    return redirect()->route('losts.index');
 });

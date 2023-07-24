@@ -16,12 +16,6 @@ class LostController extends Controller
      */
     public function index()
     {
-        // Eloquent
-        // $losts = Lost::all();
-
-        // return view ('layouts.lost', [
-        //     'losts' => $losts
-        // ]);
 
         confirmDelete();
 
@@ -60,6 +54,7 @@ class LostController extends Controller
             'required' => ':attribute harus diisi.',
             'numeric' => 'Isi :attribute dengan angka.',
             'date' => 'Isi: Tanggal kehilangan'
+
         ];
 
         // Validasi input menggunakan Validator
@@ -118,53 +113,50 @@ class LostController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-    {
+{
+    $messages = [
+        'required' => ':attribute harus diisi.',
+        'numeric' => 'Isi :attribute dengan angka.',
+        'date' => 'Isi: Tanggal kehilangan',
+        'mimes' => 'Format file :harus .jpg, .png, atau .jpeg'
+    ];
 
-        $messages = [
-            'required' => ':attribute harus diisi.',
-            'numeric' => 'Isi :attribute dengan angka.',
-            'date' => 'Isi: Tanggal kehilangan',
-        ];
+    // Validasi input menggunakan Validator
+    $validator = Validator::make($request->all(), [
+        'nama_barang' => 'required',
+        'deskripsi_barang' => 'required',
+        'tgl_kehilangan' => 'date',
+        'foto_barang_lost' => 'sometimes|required|mimes:jpg,png,jpeg', // Use 'sometimes' to only validate when a file is uploaded
+    ], $messages);
 
-        // Validasi input menggunakan Validator
-        $validator = Validator::make($request->all(), [
-            'nama_barang' => 'required',
-            'deskripsi_barang' => 'required',
-            'tgl_kehilangan' => 'date',
-            'foto_barang_lost'=>'required'
-
-        ], $messages);
-
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-
-        // Get File
-        $file = $request->file('foto');
-
-        // ELOQUENT
-        $lost = Lost::find($id);
-        $lost->nama_barang = $request->input('nama_barang');
-        $lost->deskripsi_barang = $request->input('deskripsi_barang');
-        $lost->tgl_kehilangan = $request ->input('tgl_kehilangan');
-
-        $lokasi = 'foto-lost/'.$lost->foto_barang_lost;
-        if (File::exists($lokasi)) {
-            File::delete($lokasi);
-        }
-
-        if($request->hasFile('foto_barang_lost')){
-            $request->file('foto_barang_lost')->move('foto-lost/',$request->file('foto_barang_lost')->getClientOriginalName());
-            $lost->foto_barang_lost=$request->file('foto_barang_lost')->getClientOriginalName();
-        }
-
-
-        Alert::success('Updated Successfully', 'Lost Object Data Updated.');
-
-        $lost->save();
-        return redirect()->route('losts.index', compact('lost'));
-
+    if ($validator->fails()) {
+        return redirect()->back()->withErrors($validator)->withInput();
     }
+
+    // ELOQUENT
+    $lost = Lost::find($id);
+    $lost->nama_barang = $request->input('nama_barang');
+    $lost->deskripsi_barang = $request->input('deskripsi_barang');
+    $lost->tgl_kehilangan = $request->input('tgl_kehilangan');
+
+    // Check if a new file is uploaded
+    if ($request->hasFile('foto_barang_lost')) {
+        // Delete the old image if it exists
+        $oldImageLocation = 'foto-lost/' . $lost->foto_barang_lost;
+        if (File::exists($oldImageLocation)) {
+            File::delete($oldImageLocation);
+        }
+
+        // Move and store the new image
+        $lost->foto_barang_lost = $request->file('foto_barang_lost')->getClientOriginalName();
+        $request->file('foto_barang_lost')->move('foto-lost/', $lost->foto_barang_lost);
+    }
+
+    Alert::success('Updated Successfully', 'Lost Object Data Updated.');
+    $lost->save();
+    return redirect()->route('losts.index', compact('lost'));
+}
+
 
     /**
      * Remove the specified resource from storage.
