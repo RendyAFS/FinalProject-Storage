@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class FoundController extends Controller
 {
@@ -82,6 +83,8 @@ class FoundController extends Controller
             $found->foto_barang_found=$request->file('foto_barang_found')->getClientOriginalName();
         }
 
+        Alert::success('Added Successfully', 'Found Object Added Successfully.');
+
         $found->save();
         return redirect()->route('founds.index');
     }
@@ -151,7 +154,7 @@ class FoundController extends Controller
         }
 
 
-
+        Alert::success('Updated Successfully', 'Found Object Updated Successfully.');
 
         $found->save();
         return redirect()->route('founds.index', compact('found'));
@@ -174,6 +177,8 @@ class FoundController extends Controller
         // if(file_exists($file)){
         //     @unlink($file);
         // }
+
+        Alert::success('Deleted Successfully', 'Found Data Deleted Successfully.');
 
         $found->delete();
         return redirect()->route('founds.index');
@@ -246,6 +251,8 @@ class FoundController extends Controller
             $request->file('foto_identitas')->move('foto-identitas/',$request->file('foto_identitas')->getClientOriginalName());
             $found->foto_identitas=$request->file('foto_identitas')->getClientOriginalName();
         }
+
+        Alert::success('Claimed Successfully', 'Found Object Claimed Successfully.');
 
         $found->save();
         $found->delete();

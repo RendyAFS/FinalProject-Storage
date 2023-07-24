@@ -90,7 +90,7 @@ class LostController extends Controller
                 $lost->foto_barang_lost=$request->file('foto')->getClientOriginalName();
             }
 
-            Alert::success('Added Successfully', 'Lost Data Created.');
+            Alert::success('Added Successfully', 'Lost Object Data Created.');
 
             $lost->save();
             return redirect()->route('losts.index');
@@ -159,7 +159,7 @@ class LostController extends Controller
         }
 
 
-        Alert::success('Change Successfully', 'Lost Data Updated.');
+        Alert::success('Updated Successfully', 'Lost Object Data Updated.');
 
         $lost->save();
         return redirect()->route('losts.index', compact('lost'));
@@ -179,7 +179,7 @@ class LostController extends Controller
             @unlink($file);
         }
 
-        Alert::success('Added Successfully', 'Lost Data Deleted.');
+        Alert::success('Deleted Successfully', 'Lost Object Data Deleted.');
 
         $lost->delete();
         return redirect()->route('losts.index');
