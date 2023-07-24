@@ -3,28 +3,28 @@
 @section('content')
 <div class="container-sm my-5">
     <div class="row justify-content-center">
-        <div class="p-5 bg-light rounded-3 col-xl-4 border">
+        <div class="p-5 bg-light rounded-3 col-xl-8 border">
             <div class="mb-3 text-center">
                 <i class="bi-person-circle fs-1"></i>
                 <h4>Detail Barang</h4>
             </div>
             <hr>
             <div class="row">
-                <div class="col-md-12 mb-3">
-                    <label for="nama_barang" class="form-label">Nama Barang</label>
+                <div class="col-md-6 mb-3">
+                    <label for="nama_barang" class="form-label fs-5 fw-bold text-decoration-underline">Nama Barang</label>
                     <h5>{{ $found->nama_barang }}</h5>
                 </div>
-                <div class="col-md-12 mb-3">
-                    <label for="deskripsi_barang" class="form-label">Deskripsi Barang</label>
+                <div class="col-md-6 mb-3">
+                    <label for="tgl_ditemukan" class="form-label fs-5 fw-bold text-decoration-underline">Tanggal ditemukan</label>
+                    <h5>{{ date('d-m-Y', strtotime($found->tgl_ditemukan)) }}</h5>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="deskripsi_barang" class="form-label fs-5 fw-bold text-decoration-underline">Deskripsi Barang</label>
                     <textarea class="form-control border border-black "
                     name="deskripsi_barang" id="deskripsi_barang" rows="5">{{ $found->deskripsi_barang }}</textarea>
                 </div>
-                <div class="col-md-12 mb-3">
-                    <label for="tgl_ditemukan" class="form-label">Tanggal ditemukan</label>
-                    <h5>{{ date('d-m-Y', strtotime($found->tgl_ditemukan)) }}</h5>
-                </div>
-                <div class="col-md-12 mb-3">
-                    <label for="foto_barang_found" class="form-label">Foto Barang ditemukan</label>
+                <div class="col-md-6 mb-3">
+                    <label for="foto_barang_found" class="form-label fs-5 fw-bold text-decoration-underline">Foto Barang ditemukan</label>
                     @if ($found->foto_barang_found)
                         <img src="{{ asset('foto-found/'.$found->foto_barang_found)}}" style="width: 150px">
                     @endif
