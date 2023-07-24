@@ -29,11 +29,11 @@
     id="tableFound">
         <thead>
             <tr class="fs-5 text-center">
-                <th>Deskripsi Singkat</th>
-                <th>Tanggal ditemukan</th>
+                {{-- <th>Deskripsi Singkat</th>
+                <th>Tanggal ditemukan</th> --}}
 
 
-                {{-- <th>id</th>
+                <th>id</th>
                 <th>No.</th>
                 <th>Nama</th>
                 <th class="w-50">Nama Barang</th>
@@ -44,9 +44,9 @@
                 <th>Tangal Claim</th>
                 <th>Nomor Hp</th>
                 <th class="w-25">opsi</th>
-            </tr> --}}
+            </tr>
         </thead>
-        <tbody>
+        {{-- <tbody>
             @foreach ($founds as $found)
                 <tr class="text-center">
                     <td class="w-75">
@@ -62,12 +62,12 @@
                     <td class="align-middle w-25">{{ date('d-m-Y', strtotime($found->tgl_ditemukan)) }}</td>
                 </tr>
             @endforeach
-        </tbody>
+        </tbody> --}}
     </table>
 </div>
 @endsection
 
-@push('scripts')
+{{-- @push('scripts')
     <script type="module">
         $(document).ready(function() {
             $('#tableFound').DataTable({
@@ -96,12 +96,12 @@
 
         });
     </script>
-@endpush
+@endpush --}}
 
 
 
 {{-- OPSIONAL SERVER SIDE --}}
-{{-- @push('scripts')
+@push('scripts')
     <script type="module">
         $(document).ready(function() {
             $("#tableFound").DataTable({
@@ -129,7 +129,27 @@
                     [10, 25, 50, 100, "All"],
                 ],
             });
+
+            $(".datatable").on("click", ".btn-delete", function (e) {
+                e.preventDefault();
+
+                var form = $(this).closest("form");
+                var name = $(this).data("name");
+
+                Swal.fire({
+                    title: "Are you sure want to delete\n" + name + "?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonClass: "bg-primary",
+                    confirmButtonText: "Yes, delete it!",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
+            });
         });
 
     </script>
-@endpush --}}
+@endpush

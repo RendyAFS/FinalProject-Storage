@@ -9,6 +9,10 @@
 
         {{-- MAIN MENU --}}
         <div class="row">
+
+            <div class="col-12" id="c-mainmenu">
+                <img src="{{ ('images/lo-fo hori.png')}}" style="width: 350px">
+            </div>
             <div class="col-5" id="c-mainmenu">
                 <p>
                    {{-- SPACE KOSONG --}}
