@@ -18,24 +18,40 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body id="bg-login">
+<body id="bg-login"
+style="background-image: url('{{ asset("images/home.png") }}');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        margin: 0;">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm" id="navbar">
+        {{-- <nav class="navbar navbar-expand-md navbar-light shadow-sm" id="navbar">
             <div class="container">
-                {{-- <a class="navbar-brand fw-bold" href="{{ url('/home') }}">
-                    LOST & FOUND
-                </a> --}}
+
                 <button class="navbar-toggler"  type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon" style="color: #FFA559;"  ></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+                    <ul class="navbar-nav me-auto"></ul>
 
                     </ul>
-
                     <!-- Right Side Of Navbar -->
+
+                    </ul>
+                </div>
+            </div>
+        </nav> --}}
+        <div class="container">
+            <div class="row mt-3">
+                <div class="col-xl-10 col-md-0">
+                    <p>
+                        {{-- KOSONG --}}
+                    </p>
+                </div>
+
+                <div class="col-xl-2 col-md-12">
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
@@ -44,12 +60,6 @@
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
-
-                            {{-- @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif --}}
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="btn btn-dark dropdown-toggle " style="color: #FFA559;border-radius:12px; background-color:black" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -72,7 +82,7 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </div>
 
         <main class="py-4 px-5 mx-5">
             @yield('content')

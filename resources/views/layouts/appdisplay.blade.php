@@ -21,10 +21,18 @@
 </head>
 <body id="bg-login">
     <div id="app">
-        <div class="mt-3 ms-3">
-            <a href="{{ route('founds.index') }}">
-                <img src="{{ ('images/lo-fo hori.png')}}" style="width: 150px">
-            </a>
+        <div class="container">
+            <div class="row">
+                <div class="col-5"></div>
+                <div class="col-2">
+                    <div class="mt-5">
+                        <a href="{{ route('founds.index') }}">
+                            <img src="{{ ('images/lo-fo hori.png')}}" style="width: 250px">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-5"></div>
+            </div>
         </div>
         <main class="py-4 px-5 mx-5">
             @yield('content')

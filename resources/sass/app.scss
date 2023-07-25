@@ -24,7 +24,7 @@
 
 // Login
 #bg-login{
-    background-color: #1E1E1E;
+    background-color: #232323;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -37,7 +37,7 @@
 
 #f-pass{
     text-decoration: none;
-    color: #1E1E1E;
+    color: #232323
 }
 
 
@@ -81,12 +81,12 @@
 
 #c-menu{
     width: 440px;
-    height: 380px;
+    height: 330px;
     flex-shrink: 0;
     border-radius: 15px;
-    background: #FFF;
-    box-shadow: 9px 14px 19px 0px rgba(0, 0, 0, 0.25);
-    padding-top: 110px;
+    background: #363636;
+    box-shadow: 15px 16px 0px 0px rgba(0, 0, 0, 0.25);
+    padding-top: 30px;
 }
 
 
@@ -130,4 +130,10 @@
 
 #tableLost{
     color: #FFFFFF;
+}
+
+
+.btn-outline-white {
+    color: #fff; /* Text color */
+    border-color: #fff; /* Outline color */
 }

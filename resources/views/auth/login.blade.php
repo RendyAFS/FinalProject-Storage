@@ -1,14 +1,16 @@
 @extends('layouts.apps')
 
 @section('content')
+{{-- style="background-image: url('{{ asset('/images/bg login.png') }}'); background-size: cover; background-size: 100% 100%; height: 100vh;" --}}
 <div class="container justify-content-center">
+
     <div class="text-center pt-5 mt-5 mb-4">
-        <img src="{{ asset('/images/lo-fo hori.png')}}" style="width: 350px">
+        {{-- <img src="{{ asset('/images/lo-fo hori.png')}}" style="width: 350px"> --}}
     </div>
 
-    <div class="row justify-content-center">
-        <div class="col-md-4 justify-content-center">
-            <div class="card justify-content-center">
+    <div class="row justify-content-center pt-5 mt-5">
+        <div class="col-md-4 justify-content-center pt-5 mt-5">
+            <div class="card justify-content-center ">
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="row mb-3 mt-3 pt-3 justify-content-center">
@@ -49,15 +51,6 @@
 
                         </div>
                     </div>
-
-
-                    {{-- <div class="row mb-2">
-                        <div class="col-10  ">
-                            <button type="submit" class="btn btn-primary" style="width: 200px">
-                                LOGIN
-                            </button>
-                        </div>
-                    </div> --}}
 
                     <div class="text-end me-4">
                         @if (Route::has('password.request'))
