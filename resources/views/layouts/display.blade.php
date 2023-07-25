@@ -3,11 +3,6 @@
 @section('content')
     <div class="container mt-2">
         <div class="row">
-            <div class="col-12">
-                <p class="fw-bold fs-2 pb-4 mb-4 text-center" style="color: white;">
-                    Barang ditemukan
-                </p>
-            </div>
             <div class="col-4">
                 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">

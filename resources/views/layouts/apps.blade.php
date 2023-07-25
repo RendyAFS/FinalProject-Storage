@@ -18,7 +18,12 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body id="bg-login">
+<body id="bg-login"
+style="background-image: url('{{ asset("images/login.png") }}');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        margin: 0; /* Reset default margin to prevent white space */">
     <div id="app">
         <main class="py-4">
             @yield('content')
