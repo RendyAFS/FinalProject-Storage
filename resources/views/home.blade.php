@@ -39,14 +39,15 @@
                 <div class="row text-center mb-4" >
                     <div class="col"></div>
                     <div class="col-md-10 d-grid">
-                        <a href="{{ route('losts.index') }}" class="btn btn-outline-dark btn-outline-white fs-2 text-decoration-none fw-bold" role="button">LOST?</a>
+                        <a href="{{ route('losts.index') }}"
+                        style="background-color: transparent;border: 2px solid #ffffff; color: #ffffff; font-size: 2rem; text-decoration: none; font-weight: bold;" onmouseover="this.style.backgroundColor='#FFFFFF'; this.style.color='#000000';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#ffffff';"class="btn ">LOST?</a>
                     </div>
                     <div class="col"></div>
                 </div>
                 <div class="row text-center">
                     <div class="col"></div>
                     <div class="col-md-10 d-grid">
-                        <a href="{{ route('founds.index') }}" style="background-color: #FFA559;" class="btn btn-warning fs-2 text-decoration-none fw-bold text-white" role="button">FOUND!</a>
+                        <a href="{{ route('founds.index') }}" style="background-color: #FFA559; color: #FFFFFF; font-size: 2rem; text-decoration: none; font-weight: bold;" onmouseover="this.style.backgroundColor='#545454'; this.style.color='#FFFFFF';" onmouseout="this.style.backgroundColor='#FFA559'; this.style.color='#FFFFFF';" class="btn">FOUND!</a>
                     </div>
                     <div class="col"></div>
                 </div>
