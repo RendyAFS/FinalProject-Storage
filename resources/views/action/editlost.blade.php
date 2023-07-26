@@ -38,6 +38,16 @@
                         @enderror
                     </div>
 
+                    <div class="col-md-12 mb-3 ">
+                        <label for="nomorhp" class="form-label fw-bold p-2" style="color: #454545;">Nomor HP</label>
+                        <input class="form-control @error('nomorhp') is-invalid @enderror" type="text"
+                                name="nomorhp" id="nomorhp" value="{{ $lost->nomorhp }}"
+                                placeholder="Nama Barang">
+                        @error('nomorhp')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+
                     <div class="col-md-12 mb-5">
                         <label for="foto" class="form-label fw-bold p-2" style="color: #454545;">Foto Barang Hilang</label>
                         @if ($lost->foto_barang_lost)
