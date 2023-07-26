@@ -6,12 +6,23 @@
 </head>
 <body>
     <div class="d-flex">
-        <a href="{{ route('losts.show', ['lost' => $lost->id]) }}" class="btn btn-outline-dark btn-sm me-2">
+        <a href="{{ route('losts.show', ['lost' => $lost->id]) }}" class="btn btn-outline-dark btn-sm me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 44 44" fill="none">
                 <path d="M36.6666 5.5H7.33329C5.31113 5.5 3.66663 7.1445 3.66663 9.16667V34.8333C3.66663 36.8555 5.31113 38.5 7.33329 38.5H36.6666C38.6888 38.5 40.3333 36.8555 40.3333 34.8333V9.16667C40.3333 7.1445 38.6888 5.5 36.6666 5.5ZM7.33329 34.8333V9.16667H36.6666L36.6703 34.8333H7.33329Z" fill="#FF9A62"/>
                 <path d="M11 14.6667C11 13.6541 11.8208 12.8333 12.8333 12.8333H31.1667C32.1792 12.8333 33 13.6541 33 14.6667C33 15.6792 32.1792 16.5 31.1667 16.5H12.8333C11.8208 16.5 11 15.6792 11 14.6667ZM11 22C11 20.9875 11.8208 20.1667 12.8333 20.1667H31.1667C32.1792 20.1667 33 20.9875 33 22C33 23.0125 32.1792 23.8333 31.1667 23.8333H12.8333C11.8208 23.8333 11 23.0125 11 22ZM11 29.3333C11 28.3208 11.8208 27.5 12.8333 27.5H20.1667C21.1792 27.5 22 28.3208 22 29.3333C22 30.3459 21.1792 31.1667 20.1667 31.1667H12.8333C11.8208 31.1667 11 30.3459 11 29.3333Z" fill="#FF9A62"/>
             </svg>
         </a>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" style="max-width: 750px; width: 100%;">
+                <div class="modal-content">
+
+                </div>
+            </div>
+        </div>
+
+
+
+
         <a href="{{ route('losts.edit', ['lost' => $lost->id]) }}" class="btn btn-outline-dark btn-sm me-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 45 46" fill="none">
                 <path d="M9.29407 12.059H6.86271C5.57304 12.059 4.33619 12.5713 3.42426 13.4833C2.51232 14.3952 2 15.6321 2 16.9217V38.804C2 40.0936 2.51232 41.3305 3.42426 42.2424C4.33619 43.1544 5.57304 43.6667 6.86271 43.6667H28.7449C30.0346 43.6667 31.2715 43.1544 32.1834 42.2424C33.0953 41.3305 33.6076 40.0936 33.6076 38.804V36.3726" stroke="#FF9A62" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
@@ -38,5 +49,26 @@
             </form>
         </div>
     </div>
+
+    <script>
+        // When the link is clicked, fetch the content and show the modal
+        $('a[data-bs-toggle="modal"]').on('click', function(event) {
+            event.preventDefault();
+            var url = $(this).attr('href');
+
+            $.ajax({
+                url: url,
+                method: 'GET',
+                dataType: 'html',
+                success: function(data) {
+                    $('#exampleModal .modal-content').html(data);
+                    $('#exampleModal').modal('show');
+                },
+                error: function() {
+                    alert('Error occurred while fetching data.');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
