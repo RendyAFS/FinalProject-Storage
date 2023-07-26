@@ -129,6 +129,7 @@ class LostController extends Controller
         'nama_barang' => 'required',
         'deskripsi_barang' => 'required',
         'tgl_kehilangan' => 'date',
+        'nomorhp' => 'numeric',
         'foto_barang_lost' => 'sometimes|required|mimes:jpg,png,jpeg', // Use 'sometimes' to only validate when a file is uploaded
     ], $messages);
 
@@ -141,6 +142,7 @@ class LostController extends Controller
     $lost->nama_barang = $request->input('nama_barang');
     $lost->deskripsi_barang = $request->input('deskripsi_barang');
     $lost->tgl_kehilangan = $request->input('tgl_kehilangan');
+    $lost->nomorhp = $request->input('nomorhp');
 
     // Check if a new file is uploaded
     if ($request->hasFile('foto_barang_lost')) {
