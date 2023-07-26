@@ -96,7 +96,7 @@ class FoundController extends Controller
         if ($request->ajax()) {
             return view('action.popupfound', compact('found'));
         }
-        return view('founds.index', compact('found'));
+        return view('layouts.found', compact('found'));
 
     }
 
@@ -178,17 +178,23 @@ class FoundController extends Controller
     }
 
 
-
-
-
     public function history()
     {
          // Eloquent
+         confirmDelete();
          $founds = Found::onlyTrashed()->get();
 
          return view ('layouts.history', [
              'founds' => $founds
          ]);
+    }
+
+
+    public function deleteSoftDeletedFounds()
+    {
+        Found::onlyTrashed()->forceDelete();
+
+        return redirect()->route('history');
     }
 
 
