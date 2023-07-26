@@ -90,10 +90,14 @@ class FoundController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Request $request, string $id)
     {
         $found = Found::find($id);
-        return view ('action.detailfound', compact('found'));
+        if ($request->ajax()) {
+            return view('action.popupfound', compact('found'));
+        }
+        return view('founds.index', compact('found'));
+
     }
 
     /**

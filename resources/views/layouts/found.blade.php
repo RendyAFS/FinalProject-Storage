@@ -38,7 +38,7 @@
                 <th>Foto Barang</th>
                 <th>Tangal Claim</th>
                 <th>Nomor Hp</th>
-                <th class="w-25">opsi</th>
+                <th class="w-25">Opsi</th>
             </tr>
         </thead>
     </table>

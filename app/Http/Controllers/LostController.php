@@ -94,10 +94,13 @@ class LostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Request $request, string $id)
     {
         $lost = Lost::find($id);
-        return view ('action.detaillost', compact('lost'));
+        if ($request->ajax()) {
+            return view('action.popuplost', compact('lost'));
+        }
+        return view('losts.index', compact('lost'));
     }
 
     /**
