@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use PDF;
 use App\Models\Found;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -262,4 +263,14 @@ class FoundController extends Controller
              'founds' => $founds,
          ]);
     }
+
+    public function exportPdf()
+{
+    $founds = Found::onlyTrashed()->get();
+    // $employees = Employee::all();
+
+    $pdf = PDF::loadView('export_pdf', compact('founds'));
+
+    return $pdf->download('History.pdf');
+}
 }
