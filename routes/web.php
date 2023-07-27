@@ -39,6 +39,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/claim/{foundID}', [FoundController::class, 'claim'])->name('claim');
     Route::put('/storeclaim/{foundID}', [FoundController::class, 'storeclaim'])->name('storeclaim');
     Route::get('/display', [FoundController::class, 'display'])->name('display');
+    Route::get('exportPdf', [FoundController::class, 'exportPdf'])->name('exportPdf');
 });
 
 Route::get('/schedules', function(){

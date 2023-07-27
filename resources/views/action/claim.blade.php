@@ -40,7 +40,7 @@
 
                     <div class="col-md-12 mb-3   ">
                         <input class="form-control @error('nama') is-invalid @enderror" type="text"
-                                name="nama" id="nama" value="{{ $found->nama }}"
+                                name="nama" id="nama" value="{{ old('nama') }}"
                                 placeholder="Nama Pengambil">
                         @error('nama')
                             <small class="text-danger">{{ $message }}</small>
@@ -49,7 +49,7 @@
                     <div class="col-md-12 mb-3   ">
                         <label for="tgl_claim" class="fw-bold mb-1 text-center p-2 " style="color: #454545 "> Tanggal Claim </label>
                         <input class="form-control @error('tgl_claim') is-invalid @enderror" type="date"
-                                name="tgl_claim" id="tgl_claim" value="{{ $found->tgl_claim }}"
+                                name="tgl_claim" id="tgl_claim" value="{{ old('tgl_claim') }}"
                                 placeholder="Tanggal Claim">
                         @error('tgl_claim')
                             <small class="text-danger">{{ $message }}</small>
@@ -57,7 +57,7 @@
                     </div>
                     <div class="col-md-12 mb-3   ">
                         <input class="form-control @error('nomorhp') is-invalid @enderror" type="text"
-                                name="nomorhp" id="nomorhp" value="{{ $found->nomorhp }}"
+                                name="nomorhp" id="nomorhp" value="{{ old('nomorhp') }}"
                                 placeholder="Nomor Hp">
                         @error('nomorhp')
                             <small class="text-danger">{{ $message }}</small>
