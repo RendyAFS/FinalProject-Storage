@@ -6,27 +6,50 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Claim History</title>
     <style>
-        html {
-            font-size: 12px;
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
         }
 
         .table {
-            border-collapse: collapse !important;
+            border-collapse: collapse;
             width: 100%;
+            margin-bottom: 30px;
         }
 
-        .table-bordered th,
-        .table-bordered td {
-            padding: 0.5rem;
-            border: 1px solid black !important;
+        .table th, .table td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+        }
+
+        .table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .table tbody tr:hover {
+            background-color: #e0e0e0;
+        }
+
+        .text-center {
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <h1>Claim History</h1>
-    <table class="table table-bordered">
+    <table class="table">
         <thead>
-            <tr class="fs-5 text-center">
+            <tr>
                 <th>Nama Pengambil</th>
                 <th>Nama Barang</th>
                 <th>Tanggal Claim</th>
@@ -35,11 +58,11 @@
         </thead>
         <tbody>
             @foreach ($founds as $found)
-                <tr class="text-center">
-                    <td class="align-middle">{{ $found->nama }}</td>
-                    <td class="align-middle">{{ $found->nama_barang }}</td>
-                    <td class="align-middle">{{ date('d-m-Y', strtotime($found->tgl_claim)) }}</td>
-                    <td class="align-middle">{{ $found->nomorhp }}</td>
+                <tr>
+                    <td class="text-center">{{ $found->nama }}</td>
+                    <td class="text-center">{{ $found->nama_barang }}</td>
+                    <td class="text-center">{{ date('d-m-Y', strtotime($found->tgl_claim)) }}</td>
+                    <td class="text-center">{{ $found->nomorhp }}</td>
                 </tr>
             @endforeach
         </tbody>

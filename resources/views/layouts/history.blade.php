@@ -2,14 +2,19 @@
 
 @section('content')
 <div class="row">
-    <div class="col-lg-1 col-xl-2">
-        <div class=" gap-2">
+    <div class="col-lg-1 col-xl-1">
+        <div class="">
             <a href="{{ route('founds.index') }}" style="background-color: #FFA559;" class="btn btn-warning text-black fw-bold fs-5 mb-5 mt-3">
                 <i class="bi bi-arrow-return-left"></i>
             </a>
         </div>
     </div>
-    <div class="col-lg-6 col-xl-8"></div>
+    <div class="col-lg-3 col-xl-4">
+        <P class="text-white mt-3 fs-3">
+            Claim History Table
+        </P>
+    </div>
+    <div class="col-lg-3 col-xl-5"></div>
     <div class="col-lg-1 col-xl-1 mt-2">
         <a href="{{ route('exportPdf') }}">
             <svg width="100" height="60" viewBox="0 0 149 55" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -22,8 +27,6 @@
             </svg>
         </a>
     </div>
-
-
     <div class="col-lg-1 col-xl-lg-1">
         <a href="{{ url('/delete-soft-deleted') }}" style="background-color: #FFA559;" class="btn btn-warning text-black fw-bold fs-5 mb-5 mt-3 btn-delete">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
