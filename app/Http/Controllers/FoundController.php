@@ -265,12 +265,13 @@ class FoundController extends Controller
     }
 
     public function exportPdf()
-{
-    $founds = Found::onlyTrashed()->get();
-    // $employees = Employee::all();
+    {
+        $founds = Found::onlyTrashed()->get();
+        // $employees = Employee::all();
 
-    $pdf = PDF::loadView('export_pdf', compact('founds'));
+        $pdf = PDF::loadView('export_pdf', compact('founds'));
 
-    return $pdf->download('History.pdf');
-}
+
+        return $pdf->download('History.pdf');
+    }
 }

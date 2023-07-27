@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Lost & Found</title>
 
     <!-- Fonts -->
 
@@ -20,6 +20,7 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
 </head>
+
 <body id="bg-login">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light shadow-sm" id="navbar">
