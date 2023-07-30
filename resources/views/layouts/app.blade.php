@@ -23,7 +23,8 @@
 
 <body id="bg-login">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm" id="navbar">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm" id="navbar"
+        style="position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
             <div class="container">
                 <a class="navbar-brand fw-bold " href="{{ url('/home') }}">
                     <i class="bi bi-house-fill"></i>
@@ -54,12 +55,6 @@
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
-
-                            {{-- @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif --}}
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="btn btn-dark dropdown-toggle " style="color: #FFA559;border-radius:12px; background-color:black" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

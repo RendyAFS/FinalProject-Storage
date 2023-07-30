@@ -26,24 +26,6 @@ style="background-image: url('{{ asset("images/home.png") }}');
         background-position: center center;
         margin: 0;">
     <div id="app">
-        {{-- <nav class="navbar navbar-expand-md navbar-light shadow-sm" id="navbar">
-            <div class="container">
-
-                <button class="navbar-toggler"  type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon" style="color: #FFA559;"  ></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto"></ul>
-
-                    </ul>
-                    <!-- Right Side Of Navbar -->
-
-                    </ul>
-                </div>
-            </div>
-        </nav> --}}
         <div class="container">
             <div class="row mt-3">
                 <div class="col-xl-10 col-md-0">
